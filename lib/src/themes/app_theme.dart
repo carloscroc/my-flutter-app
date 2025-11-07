@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static ThemeData light() {
     return ThemeData(
-      primarySwatch: Colors.blue,
-      scaffoldBackgroundColor: Colors.white,
+      useMaterial3: true,
+      colorSchemeSeed: const Color(0xFF6750A4),
       textTheme: const TextTheme(
-        bodyText2: TextStyle(fontSize: 16),
+        bodyMedium: TextStyle(fontSize: 16),
       ),
     );
   }
