@@ -5,16 +5,15 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:my_flutter_app/main.dart';
 
 void main() {
-  testWidgets('App shows welcome text', (WidgetTester tester) async {
+  testWidgets('App loads successfully', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
     await tester.pumpAndSettle();
 
-    expect(find.text('Welcome to My Flutter App'), findsOneWidget);
+    // Verify the app loads (onboarding page is shown)
+    expect(find.text('Welcome to Your Wellness Journey'), findsOneWidget);
   });
 }

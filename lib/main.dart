@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
-import 'src/themes/app_theme.dart';
-import 'src/routes/app_routes.dart';
+import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/routes/app_router.dart';
+import 'package:my_flutter_app/data/models/backend/backend.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase (will handle if already initialized)
+  await FirebaseBackend.initialize();
+
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'My Flutter App',
-      theme: AppTheme.light(),
-      onGenerateRoute: AppRoutes.generate,
-      initialRoute: '/',
+      theme: FlutterFlowTheme.theme,
+      routerConfig: AppRouter.router,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
