@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
@@ -64,6 +65,16 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
     setState(() => _isLoading = true);
 
     try {
+      // DEBUG bypass: in debug builds go straight to home without Firebase
+      if (kDebugMode) {
+        await Future.delayed(const Duration(milliseconds: 250)); // small UX delay
+        if (mounted) {
+          context.go(RouteNames.home);
+        }
+        return;
+      }
+
+      // Production/dev with Firebase: existing behavior
       final user = await _authRepository.signInAsGuest();
       if (user != null && mounted) {
         context.go(RouteNames.home);
