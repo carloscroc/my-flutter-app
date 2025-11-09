@@ -3,6 +3,8 @@ import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
 import 'package:my_flutter_app/features/home/domain/models/home_model.dart';
 import 'package:my_flutter_app/features/home/presentation/widgets/item_featured_workouts_widget.dart';
 import 'package:my_flutter_app/features/home/presentation/widgets/item_meditative_vertical_widget.dart';
+import 'package:my_flutter_app/features/home/presentation/widgets/week_calendar_widget.dart';
+import 'package:my_flutter_app/features/calendar/presentation/pages/calendar_detail_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePageWidget extends StatefulWidget {
@@ -96,6 +98,26 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ],
+                    ),
+                  ),
+
+                  // Week Calendar Section
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+                    child: WeekCalendarWidget(
+                      selectedDate: _model.selectedDate,
+                      onDateTap: (date) {
+                        _model.setSelectedDate(date);
+                        // Navigate to calendar detail page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CalendarDetailPage(
+                              initialDate: date,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
 

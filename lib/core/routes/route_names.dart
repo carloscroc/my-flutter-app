@@ -9,4 +9,16 @@ class RouteNames {
   // Home
   static const String home = '/';
   static const String homePage = '/home';
+
+  // Calendar
+  static const String calendarDetail = '/calendar-detail';
+
+  // Workouts
+  static const String workouts = '/workouts';
+
+  // Meals
+  static const String meals = '/meals';
+
+  // Community
+  static const String community = '/community';
 }
