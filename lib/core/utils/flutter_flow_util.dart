@@ -1,4 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+/// Create a model instance for a page
+T createModel<T>(BuildContext context, T Function() builder) {
+  return builder();
+}
+
+/// Extension for adding spacing between widgets in a list
+extension ListSpacingExtension on List<Widget> {
+  List<Widget> divide(Widget separator) {
+    if (isEmpty) return this;
+    return [
+      for (int i = 0; i < length; i++) ...[
+        this[i],
+        if (i < length - 1) separator,
+      ],
+    ];
+  }
+}
+
+/// Extension for GoRouter navigation helpers
+extension GoRouterNavigationExtension on BuildContext {
+  void pushNamed(String name, {Map<String, dynamic>? params}) {
+    // Map route names to paths - this is a simple implementation
+    // In a real app, you'd have a more robust route mapping system
+    push(name);
+  }
+
+  void goNamedAuth(String name, bool mounted) {
+    if (mounted) {
+      go(name);
+    }
+  }
+}
 
 class FlutterFlowUtil {
   /// Navigate to a route

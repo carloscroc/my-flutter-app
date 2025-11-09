@@ -9,6 +9,11 @@ import 'package:my_flutter_app/features/calendar/presentation/pages/calendar_det
 import 'package:my_flutter_app/features/workouts/presentation/pages/workout_page.dart';
 import 'package:my_flutter_app/features/meals/presentation/pages/meals_page.dart';
 import 'package:my_flutter_app/features/community/presentation/pages/community_page.dart';
+import 'package:my_flutter_app/features/profile/presentation/pages/profile_page.dart';
+import 'package:my_flutter_app/features/profile/presentation/pages/personal_details_page.dart';
+import 'package:my_flutter_app/features/profile/presentation/pages/activity_page.dart';
+import 'package:my_flutter_app/features/profile/presentation/pages/saved_page.dart';
+import 'package:my_flutter_app/features/profile/presentation/pages/account_settings_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -89,6 +94,42 @@ class AppRouter {
                 path: RouteNames.community,
                 name: 'CommunityPage',
                 builder: (context, state) => const CommunityPageWidget(),
+              ),
+            ],
+          ),
+
+          // Profile Tab
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RouteNames.profilePage,
+                name: 'ProfilePage',
+                builder: (context, state) => const ProfilePageWidget(),
+                routes: [
+                  // Profile sub-pages
+                  GoRoute(
+                    path: 'personal-details',
+                    name: 'PersonalDetailsPage',
+                    builder: (context, state) =>
+                        const PersonalDetailsPageWidget(),
+                  ),
+                  GoRoute(
+                    path: 'activity',
+                    name: 'ActivityPage',
+                    builder: (context, state) => const ActivityPageWidget(),
+                  ),
+                  GoRoute(
+                    path: 'saved',
+                    name: 'SavedPage',
+                    builder: (context, state) => const SavedPageWidget(),
+                  ),
+                  GoRoute(
+                    path: 'account-settings',
+                    name: 'AccountSettingsPage',
+                    builder: (context, state) =>
+                        const AccountSettingsPageWidget(),
+                  ),
+                ],
               ),
             ],
           ),

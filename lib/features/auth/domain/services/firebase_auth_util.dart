@@ -1,4 +1,33 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
+// Export auth utilities for convenience
+User? get currentUser => AuthUtil.currentUser;
+String get currentUserUid => AuthUtil.currentUserUid;
+String get currentUserEmail => AuthUtil.currentUserEmail;
+String get currentUserDisplayName => AuthUtil.currentUserDisplayName;
+bool get loggedIn => AuthUtil.isLoggedIn;
+
+// Auth manager for compatibility with FlutterFlow patterns
+final authManager = AuthUtil();
+
+/// Widget that rebuilds when authentication state changes
+class AuthUserStreamWidget extends StatelessWidget {
+  final Widget Function(BuildContext) builder;
+
+  const AuthUserStreamWidget({
+    super.key,
+    required this.builder,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) => builder(context),
+    );
+  }
+}
 
 class AuthUtil {
   static final FirebaseAuth _auth = FirebaseAuth.instance;

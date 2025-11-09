@@ -21,4 +21,12 @@ class RouteNames {
 
   // Community
   static const String community = '/community';
+
+  // Profile
+  static const String profile = '/profile';
+  static const String profilePage = '/profilePage';
+  static const String personalDetails = '/profile/personal-details';
+  static const String activity = '/profile/activity';
+  static const String saved = '/profile/saved';
+  static const String accountSettings = '/profile/account-settings';
 }

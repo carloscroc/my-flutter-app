@@ -52,6 +52,11 @@ class BottomNavScaffold extends StatelessWidget {
             activeIcon: Icon(Icons.people),
             label: 'Community',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            activeIcon: Icon(Icons.person),
+            label: 'Profile',
+          ),
         ],
       ),
     );
