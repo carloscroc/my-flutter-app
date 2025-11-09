@@ -27,7 +27,8 @@ class FlutterFlowTheme {
   static const Color error300 = Color(0xFFEF5350);
 
   // Context-based theme access (FlutterFlow compatibility)
-  static _FlutterFlowThemeData of(BuildContext context) {
+  // Return type is dynamic to avoid exposing a private type in public API.
+  static dynamic of(BuildContext context) {
     return _FlutterFlowThemeData._instance;
   }
 
