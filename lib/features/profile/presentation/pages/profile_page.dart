@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/theme/flutter_flow_theme.dart';
-import '../../../../core/utils/flutter_flow_util.dart';
+import '../../../../core/theme/app_theme.dart';
+import '../../../../core/utils/app_util.dart';
 import '../../../../core/utils/ff_icons.dart';
 import '../../../../features/auth/domain/services/firebase_auth_util.dart';
 import '../../../../features/onboarding/presentation/pages/onboarding_page.dart';
@@ -52,25 +52,25 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: AppTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: AppTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
             'Profile',
-            style: FlutterFlowTheme.of(context).paragraphP1SemiBold.override(
+            style: AppTheme.of(context).paragraphP1SemiBold.override(
                   font: GoogleFonts.inter(
                     fontWeight: FontWeight.w600,
-                    fontStyle: FlutterFlowTheme.of(context)
-                        .paragraphP1SemiBold
+                    fontStyle: AppTheme.of(context)
+                      .paragraphP1SemiBold
                         .fontStyle,
                   ),
                   color: Colors.white,
                   fontSize: 18,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
-                  fontStyle: FlutterFlowTheme.of(context)
-                      .paragraphP1SemiBold
+                  fontStyle: AppTheme.of(context)
+                    .paragraphP1SemiBold
                       .fontStyle,
                 ),
           ),
@@ -93,7 +93,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       builder: (context) => Text(
                         currentUserDisplayName,
                         style: FlutterFlowTheme.of(context)
-                            .desktopHeadingH6Bold
+                             .desktopHeadingH6Bold
                             .override(
                               font: GoogleFonts.inter(
                                 fontWeight: FontWeight.bold,

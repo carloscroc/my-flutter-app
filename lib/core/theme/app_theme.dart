@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'flutter_flow_theme.dart';
+// Re-export the original FlutterFlow theme so callers that import
+// `app_theme.dart` get both `AppTheme` and `FlutterFlowTheme` symbols.
+export 'flutter_flow_theme.dart';
 
 class AppTheme {
   /// Preserve the existing named constructor for light theme
@@ -58,8 +61,11 @@ class AppTheme {
   static ThemeData get theme => FlutterFlowTheme.theme;
 
   // Compatibility instance-based access returning a public adapter type
-  static AppThemeData of(BuildContext context) =>
-      AppThemeData._fromFlutterFlow(FlutterFlowTheme.of(context));
+  // Return the underlying FlutterFlow theme data dynamically to preserve
+  // all existing members callers may expect. This avoids exposing private
+  // types in the public API while keeping compatibility during the
+  // refactor to `AppTheme`.
+  static dynamic of(BuildContext context) => FlutterFlowTheme.of(context);
 }
 
 /// Public adapter that exposes the subset of theme properties used across the app.

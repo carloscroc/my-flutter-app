@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 
 class PrimaryButtonWidget extends StatelessWidget {
   final String text;
@@ -25,7 +25,7 @@ class PrimaryButtonWidget extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: FlutterFlowTheme.primaryColor,
+          backgroundColor: AppTheme.primaryColor,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -43,7 +43,7 @@ class PrimaryButtonWidget extends StatelessWidget {
               )
             : Text(
                 text,
-                style: FlutterFlowTheme.titleMedium.copyWith(
+                style: AppTheme.titleMedium.copyWith(
                   color: Colors.white,
                 ),
               ),

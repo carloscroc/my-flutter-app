@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/theme/flutter_flow_theme.dart';
+import '../../../../core/theme/app_theme.dart';
 import '../../domain/models/meals_page_model.dart';
 
 class MealsPageWidget extends StatefulWidget {
@@ -33,7 +33,7 @@ class _MealsPageWidgetState extends State<MealsPageWidget> {
     return ChangeNotifierProvider.value(
       value: _model,
       child: Scaffold(
-        backgroundColor: FlutterFlowTheme.primaryBackground,
+        backgroundColor: AppTheme.primaryBackground,
         body: SafeArea(
           child: Center(
             child: Padding(
@@ -44,21 +44,21 @@ class _MealsPageWidgetState extends State<MealsPageWidget> {
                   Icon(
                     Icons.restaurant_menu,
                     size: 100,
-                    color: FlutterFlowTheme.primaryColor,
+                    color: AppTheme.primaryColor,
                   ),
                   const SizedBox(height: 24),
                   Text(
                     'Meals',
-                    style: FlutterFlowTheme.headlineLarge.copyWith(
-                      color: FlutterFlowTheme.primaryText,
+                    style: AppTheme.headlineLarge.copyWith(
+                      color: AppTheme.primaryText,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 16),
                   Text(
                     'Coming Soon',
-                    style: FlutterFlowTheme.titleMedium.copyWith(
-                      color: FlutterFlowTheme.secondaryText,
+                    style: AppTheme.titleMedium.copyWith(
+                      color: AppTheme.secondaryText,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -67,8 +67,8 @@ class _MealsPageWidgetState extends State<MealsPageWidget> {
                     child: Text(
                       'Discover healthy meal plans, recipes, and nutrition tracking to complement your fitness journey.',
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.bodyMedium.copyWith(
-                        color: FlutterFlowTheme.secondaryText,
+                      style: AppTheme.bodyMedium.copyWith(
+                        color: AppTheme.secondaryText,
                       ),
                     ),
                   ),
@@ -76,7 +76,7 @@ class _MealsPageWidgetState extends State<MealsPageWidget> {
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.secondaryBackground,
+                      color: AppTheme.secondaryBackground,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Column(
@@ -106,13 +106,13 @@ class _MealsPageWidgetState extends State<MealsPageWidget> {
         Icon(
           icon,
           size: 24,
-          color: FlutterFlowTheme.primaryColor,
+          color: AppTheme.primaryColor,
         ),
         const SizedBox(width: 12),
         Text(
           title,
-          style: FlutterFlowTheme.bodyMedium.copyWith(
-            color: FlutterFlowTheme.primaryText,
+          style: AppTheme.bodyMedium.copyWith(
+            color: AppTheme.primaryText,
             fontWeight: FontWeight.w500,
           ),
         ),

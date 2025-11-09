@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 import 'package:my_flutter_app/features/home/domain/models/home_model.dart';
 import 'package:my_flutter_app/features/home/presentation/widgets/item_featured_workouts_widget.dart';
 import 'package:my_flutter_app/features/home/presentation/widgets/item_meditative_vertical_widget.dart';
@@ -45,7 +45,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         },
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.primaryBackground,
+          backgroundColor: AppTheme.primaryBackground,
           body: SafeArea(
             top: true,
             child: SingleChildScrollView(
@@ -61,7 +61,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         IconButton(
                           icon: const Icon(Icons.notifications_outlined),
-                          color: FlutterFlowTheme.primaryText,
+                          color: AppTheme.primaryText,
                           iconSize: 28,
                           onPressed: () {
                             // Handle notification tap
@@ -70,7 +70,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         const Spacer(),
                         IconButton(
                           icon: const Icon(Icons.search),
-                          color: FlutterFlowTheme.primaryText,
+                          color: AppTheme.primaryText,
                           iconSize: 28,
                           onPressed: () {
                             // Handle search tap
@@ -88,13 +88,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         Text(
                           'Welcome Back!',
-                          style: FlutterFlowTheme.headlineLarge,
+                          style: AppTheme.headlineLarge,
                         ),
                         const SizedBox(height: 8),
                         Text(
                           'Ready to start your wellness journey?',
-                          style: FlutterFlowTheme.bodyLarge.copyWith(
-                            color: FlutterFlowTheme.secondaryText,
+                          style: AppTheme.bodyLarge.copyWith(
+                            color: AppTheme.secondaryText,
                           ),
                         ),
                       ],

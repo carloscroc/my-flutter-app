@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../theme/flutter_flow_theme.dart';
+import '../theme/app_theme.dart';
 
 class BottomNavScaffold extends StatelessWidget {
   final StatefulNavigationShell navigationShell;

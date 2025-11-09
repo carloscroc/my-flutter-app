@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarDetailPage extends StatefulWidget {
@@ -55,23 +55,23 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
     return Scaffold(
       backgroundColor: isDark
           ? const Color(0xFF14191A)
-          : FlutterFlowTheme.primaryBackground,
+          : AppTheme.primaryBackground,
       appBar: AppBar(
         backgroundColor: isDark
             ? const Color(0xFF1E2324)
-            : FlutterFlowTheme.secondaryBackground,
+            : AppTheme.secondaryBackground,
         elevation: 0,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: FlutterFlowTheme.primaryText,
+            color: AppTheme.primaryText,
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
           'Workout Calendar',
           style: TextStyle(
-            color: FlutterFlowTheme.primaryText,
+            color: AppTheme.primaryText,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
@@ -80,7 +80,7 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
           IconButton(
             icon: Icon(
               Icons.add,
-              color: FlutterFlowTheme.primaryColor,
+              color: AppTheme.primaryColor,
             ),
             onPressed: () => _showAddWorkoutDialog(),
           ),
@@ -92,7 +92,7 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
             decoration: BoxDecoration(
               color: isDark
                   ? const Color(0xFF1E2324)
-                  : FlutterFlowTheme.secondaryBackground,
+                  : AppTheme.secondaryBackground,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(16),
                 bottomRight: Radius.circular(16),
@@ -121,7 +121,7 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
               eventLoader: _getWorkoutsForDay,
               calendarStyle: CalendarStyle(
                 todayDecoration: BoxDecoration(
-                  color: FlutterFlowTheme.primaryColor.withValues(alpha: 0.5),
+                  color: AppTheme.primaryColor.withOpacity(0.5),
                   shape: BoxShape.circle,
                 ),
                 selectedDecoration: BoxDecoration(

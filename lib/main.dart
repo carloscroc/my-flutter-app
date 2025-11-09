@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 import 'package:my_flutter_app/core/routes/app_router.dart';
 import 'package:my_flutter_app/data/models/backend/backend.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'My Flutter App',
-      theme: FlutterFlowTheme.theme,
+      theme: AppTheme.theme,
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
     );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/theme/flutter_flow_theme.dart';
+import '../../../../core/theme/app_theme.dart';
 import '../../domain/models/workout_page_model.dart';
 import '../widgets/item_featured_workouts_widget.dart';
 import '../widgets/item_workout_big_widget.dart';
@@ -58,7 +58,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
         },
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.primaryBackground,
+          backgroundColor: AppTheme.primaryBackground,
           body: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +88,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
                             child: Text(
                               'Workouts',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.titleLarge.copyWith(
+                              style: AppTheme.titleLarge.copyWith(
                                 fontFamily: 'Inter',
                                 color: const Color(0xFFF8F8F8),
                                 fontSize: 18,
@@ -135,10 +135,10 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
                   child: Consumer<WorkoutPageModel>(
                     builder: (context, model, child) {
                       if (model.isLoading) {
-                        return const Center(
+                        return Center(
                           child: CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.primaryColor,
+                              AppTheme.primaryColor,
                             ),
                           ),
                         );
@@ -217,7 +217,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
     return Container(
       height: 40,
       decoration: BoxDecoration(
-        color: isSelected ? const Color(0xFF333300) : FlutterFlowTheme.secondaryBackground,
+        color: isSelected ? const Color(0xFF333300) : AppTheme.secondaryBackground,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
@@ -231,7 +231,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
             ],
             Text(
               label,
-              style: FlutterFlowTheme.bodyMedium.copyWith(
+              style: AppTheme.bodyMedium.copyWith(
                 fontFamily: 'Inter',
                 color: const Color(0xFFF8F8F8),
                 fontSize: 16,
@@ -256,7 +256,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
           children: [
             Text(
               title,
-              style: FlutterFlowTheme.titleLarge.copyWith(
+              style: AppTheme.titleLarge.copyWith(
                 fontFamily: 'Inter',
                 color: const Color(0xFFF8F8F8),
                 fontSize: 20,
@@ -269,7 +269,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
               },
               child: Text(
                 'See All',
-                style: FlutterFlowTheme.bodyMedium.copyWith(
+                style: AppTheme.bodyMedium.copyWith(
                   fontFamily: 'Inter',
                   color: const Color(0xFFBEBFC2),
                   fontSize: 14,
@@ -310,7 +310,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
           children: [
             Text(
               'Challenges',
-              style: FlutterFlowTheme.titleLarge.copyWith(
+              style: AppTheme.titleLarge.copyWith(
                 fontFamily: 'Inter',
                 color: const Color(0xFFF8F8F8),
                 fontSize: 20,
@@ -323,7 +323,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
               },
               child: Text(
                 'See All',
-                style: FlutterFlowTheme.bodyMedium.copyWith(
+                style: AppTheme.bodyMedium.copyWith(
                   fontFamily: 'Inter',
                   color: const Color(0xFFBEBFC2),
                   fontSize: 14,
@@ -352,7 +352,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
                   height: 155,
                   fit: BoxFit.cover,
                   errorWidget: (context, url, error) => Container(
-                    color: FlutterFlowTheme.secondaryBackground,
+                    color: AppTheme.secondaryBackground,
                     child: const Icon(
                       Icons.emoji_events,
                       size: 50,
@@ -379,7 +379,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
           children: [
             Text(
               'Perfect For Home',
-              style: FlutterFlowTheme.titleLarge.copyWith(
+              style: AppTheme.titleLarge.copyWith(
                 fontFamily: 'Inter',
                 color: const Color(0xFFF8F8F8),
                 fontSize: 20,
@@ -392,7 +392,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
               },
               child: Text(
                 'See All',
-                style: FlutterFlowTheme.bodyMedium.copyWith(
+                style: AppTheme.bodyMedium.copyWith(
                   fontFamily: 'Inter',
                   color: const Color(0xFFBEBFC2),
                   fontSize: 14,
@@ -433,7 +433,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
           children: [
             Text(
               'Body Focus',
-              style: FlutterFlowTheme.titleLarge.copyWith(
+              style: AppTheme.titleLarge.copyWith(
                 fontFamily: 'Inter',
                 color: const Color(0xFFF8F8F8),
                 fontSize: 20,
@@ -446,7 +446,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
               },
               child: Text(
                 'See All',
-                style: FlutterFlowTheme.bodyMedium.copyWith(
+                style: AppTheme.bodyMedium.copyWith(
                   fontFamily: 'Inter',
                   color: const Color(0xFFBEBFC2),
                   fontSize: 14,
@@ -486,7 +486,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
       child: Container(
         height: 151,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.secondaryBackground,
+          color: AppTheme.secondaryBackground,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
@@ -503,7 +503,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: FlutterFlowTheme.bodyMedium.copyWith(
+                style: AppTheme.bodyMedium.copyWith(
                   fontFamily: 'Inter',
                   color: const Color(0xFFF8F8F8),
                   fontSize: 14,
@@ -544,7 +544,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
           children: [
             Text(
               'With Equipment',
-              style: FlutterFlowTheme.titleLarge.copyWith(
+              style: AppTheme.titleLarge.copyWith(
                 fontFamily: 'Inter',
                 color: const Color(0xFFF8F8F8),
                 fontSize: 20,
@@ -557,7 +557,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
               },
               child: Text(
                 'See All',
-                style: FlutterFlowTheme.bodyMedium.copyWith(
+                style: AppTheme.bodyMedium.copyWith(
                   fontFamily: 'Inter',
                   color: const Color(0xFFBEBFC2),
                   fontSize: 14,
@@ -586,7 +586,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
                         errorWidget: (context, url, error) => Container(
                           width: 193,
                           height: 188,
-                          color: FlutterFlowTheme.secondaryBackground,
+                          color: AppTheme.secondaryBackground,
                           child: const Icon(
                             Icons.fitness_center,
                             size: 60,
@@ -598,7 +598,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
                     const SizedBox(height: 8),
                     Text(
                       workout['name'] as String,
-                      style: FlutterFlowTheme.bodyMedium.copyWith(
+                      style: AppTheme.bodyMedium.copyWith(
                         fontFamily: 'Inter',
                         color: const Color(0xFFF8F8F8),
                         fontSize: 14,
@@ -607,7 +607,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
                     ),
                     Text(
                       workout['difficulty'] as String,
-                      style: FlutterFlowTheme.bodySmall.copyWith(
+                      style: AppTheme.bodySmall.copyWith(
                         fontFamily: 'Inter',
                         color: const Color(0xFFA1A2A6),
                         fontSize: 12,
@@ -647,7 +647,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.secondaryBackground,
+            color: AppTheme.secondaryBackground,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
@@ -696,10 +696,10 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
         ),
         child: Padding(
           padding: const EdgeInsets.all(8),
-          child: Text(
+                child: Text(
             'All Workouts',
             textAlign: TextAlign.center,
-            style: FlutterFlowTheme.titleMedium.copyWith(
+            style: AppTheme.titleMedium.copyWith(
               fontFamily: 'Inter',
               color: const Color(0xFFF8F8F8),
               fontSize: 18,

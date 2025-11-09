@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../core/theme/flutter_flow_theme.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class SavedPageWidget extends StatefulWidget {
   const SavedPageWidget({super.key});
@@ -20,13 +20,13 @@ class _SavedPageWidgetState extends State<SavedPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: AppTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: AppTheme.of(context).primaryBackground,
         automaticallyImplyLeading: true,
         title: Text(
           'Saved',
-          style: FlutterFlowTheme.of(context).paragraphP1SemiBold.copyWith(
+          style: AppTheme.of(context).paragraphP1SemiBold.copyWith(
                 fontFamily: GoogleFonts.inter().fontFamily,
                 color: Colors.white,
                 fontSize: 18,
@@ -46,12 +46,12 @@ class _SavedPageWidgetState extends State<SavedPageWidget> {
                 Icon(
                   Icons.bookmark_border,
                   size: 80,
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: AppTheme.of(context).primary,
                 ),
                 SizedBox(height: 24),
                 Text(
                   'Saved Items',
-                  style: FlutterFlowTheme.of(context).desktopHeadingH6Bold.copyWith(
+                  style: AppTheme.of(context).desktopHeadingH6Bold.copyWith(
                         fontFamily: GoogleFonts.inter().fontFamily,
                         color: Colors.white,
                         fontSize: 24,
@@ -62,7 +62,7 @@ class _SavedPageWidgetState extends State<SavedPageWidget> {
                   'This page is coming soon.\nYou will be able to view your saved workouts and meditations here.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: FlutterFlowTheme.of(context).neutral50,
+                    color: AppTheme.of(context).neutral50,
                     fontSize: 16,
                   ),
                 ),

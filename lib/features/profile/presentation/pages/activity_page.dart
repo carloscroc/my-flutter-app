@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../core/theme/flutter_flow_theme.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class ActivityPageWidget extends StatefulWidget {
   const ActivityPageWidget({super.key});
@@ -26,7 +26,7 @@ class _ActivityPageWidgetState extends State<ActivityPageWidget> {
         automaticallyImplyLeading: true,
         title: Text(
           'Activity',
-          style: FlutterFlowTheme.of(context).paragraphP1SemiBold.copyWith(
+          style: AppTheme.of(context).paragraphP1SemiBold.copyWith(
                 fontFamily: GoogleFonts.inter().fontFamily,
                 color: Colors.white,
                 fontSize: 18,

@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 
 class WeekCalendarWidget extends StatefulWidget {
   final DateTime? selectedDate;
@@ -74,7 +74,7 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
     final dayTextColor = isDark
         ? const Color(0xFFBDBDBD)
         : FlutterFlowTheme.secondaryText;
-    final dayNumberColor = isDark ? Colors.white : FlutterFlowTheme.primaryText;
+    final dayNumberColor = isDark ? Colors.white : AppTheme.primaryText;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0),
@@ -148,14 +148,14 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
                                   height: 56,
                                   decoration: BoxDecoration(
                                     color: isToday
-                                        ? FlutterFlowTheme.primaryColor
+                                        ? AppTheme.primaryColor
                                         : (isSelected
-                                            ? FlutterFlowTheme.primaryColor.withOpacity(0.12)
+                                            ? AppTheme.primaryColor.withOpacity(0.12)
                                             : dayContainerColor),
                                     borderRadius: BorderRadius.circular(8),
                                     border: isSelected && !isToday
                                         ? Border.all(
-                                            color: FlutterFlowTheme.primaryColor,
+                                            color: AppTheme.primaryColor,
                                             width: 2,
                                           )
                                         : null,
@@ -167,7 +167,7 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
                                         dayNames[date.weekday % 7],
                                         style: TextStyle(
                                           color: isToday
-                                              ? (isDark ? FlutterFlowTheme.primaryBackground : Colors.white)
+                                              ? (isDark ? AppTheme.primaryBackground : Colors.white)
                                               : dayTextColor,
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
@@ -178,7 +178,7 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
                                         '${date.day}',
                                         style: TextStyle(
                                           color: isToday
-                                              ? (isDark ? FlutterFlowTheme.primaryBackground : Colors.white)
+                                              ? (isDark ? AppTheme.primaryBackground : Colors.white)
                                               : dayNumberColor,
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
@@ -199,7 +199,7 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
                       children: [
                         Icon(
                           Icons.fitness_center,
-                          color: FlutterFlowTheme.warning,
+                          color: AppTheme.warning,
                           size: 16,
                         ),
                         const SizedBox(width: 4),

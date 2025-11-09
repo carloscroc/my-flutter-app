@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 
 class ItemFeaturedWorkoutsWidget extends StatelessWidget {
   final String title;
@@ -24,7 +24,7 @@ class ItemFeaturedWorkoutsWidget extends StatelessWidget {
         width: 200,
         margin: const EdgeInsets.only(right: 16),
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.secondaryBackground,
+          color: AppTheme.secondaryBackground,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
@@ -49,13 +49,13 @@ class ItemFeaturedWorkoutsWidget extends StatelessWidget {
                   height: 120,
                   fit: BoxFit.cover,
                   placeholder: (context, url) => Container(
-                    color: FlutterFlowTheme.alternate,
+                    color: AppTheme.alternate,
                     child: const Center(
                       child: CircularProgressIndicator(),
                     ),
                   ),
                   errorWidget: (context, url, error) => Container(
-                    color: FlutterFlowTheme.alternate,
+                    color: AppTheme.alternate,
                     child: const Icon(Icons.error),
                   ),
                 ),
@@ -67,7 +67,7 @@ class ItemFeaturedWorkoutsWidget extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: FlutterFlowTheme.titleMedium,
+                    style: AppTheme.titleMedium,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -75,7 +75,7 @@ class ItemFeaturedWorkoutsWidget extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       subtitle!,
-                      style: FlutterFlowTheme.bodySmall,
+                      style: AppTheme.bodySmall,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),

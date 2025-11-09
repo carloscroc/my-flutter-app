@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 
 class SecondaryButtonWidget extends StatelessWidget {
   final String text;
@@ -25,9 +25,9 @@ class SecondaryButtonWidget extends StatelessWidget {
       child: OutlinedButton(
         onPressed: isLoading ? null : onPressed,
         style: OutlinedButton.styleFrom(
-          foregroundColor: FlutterFlowTheme.primaryColor,
-          side: const BorderSide(
-            color: FlutterFlowTheme.primaryColor,
+          foregroundColor: AppTheme.primaryColor,
+          side: BorderSide(
+            color: AppTheme.primaryColor,
             width: 2,
           ),
           shape: RoundedRectangleBorder(
@@ -35,20 +35,20 @@ class SecondaryButtonWidget extends StatelessWidget {
           ),
         ),
         child: isLoading
-            ? const SizedBox(
+            ? SizedBox(
                 height: 20,
                 width: 20,
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                   valueColor: AlwaysStoppedAnimation<Color>(
-                    FlutterFlowTheme.primaryColor,
+                    AppTheme.primaryColor,
                   ),
                 ),
               )
             : Text(
                 text,
-                style: FlutterFlowTheme.titleMedium.copyWith(
-                  color: FlutterFlowTheme.primaryColor,
+                style: AppTheme.titleMedium.copyWith(
+                  color: AppTheme.primaryColor,
                 ),
               ),
       ),

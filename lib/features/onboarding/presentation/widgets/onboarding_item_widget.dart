@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 
 class OnboardingItemWidget extends StatelessWidget {
   final String title;
@@ -29,14 +29,14 @@ class OnboardingItemWidget extends StatelessWidget {
           const SizedBox(height: 40),
           Text(
             title,
-            style: FlutterFlowTheme.headlineLarge,
+            style: AppTheme.headlineLarge,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
           Text(
             description,
-            style: FlutterFlowTheme.bodyLarge.copyWith(
-              color: FlutterFlowTheme.secondaryText,
+            style: AppTheme.bodyLarge.copyWith(
+              color: AppTheme.secondaryText,
             ),
             textAlign: TextAlign.center,
           ),

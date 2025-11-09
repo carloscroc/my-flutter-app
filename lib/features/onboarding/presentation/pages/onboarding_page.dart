@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 import 'package:my_flutter_app/core/routes/route_names.dart';
 import 'package:my_flutter_app/features/onboarding/domain/models/onboarding_model.dart';
 import 'package:my_flutter_app/features/onboarding/presentation/widgets/onboarding_item_widget.dart';
@@ -101,7 +101,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
         },
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.primaryBackground,
+          backgroundColor: AppTheme.primaryBackground,
           body: SafeArea(
             top: true,
             child: Padding(
@@ -151,13 +151,13 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                   );
                                   setState(() {});
                                 },
-                                effect: const SlideEffect(
+                                effect: SlideEffect(
                                   spacing: 8,
                                   radius: 2,
                                   dotWidth: 90,
                                   dotHeight: 4,
-                                  dotColor: FlutterFlowTheme.alternate,
-                                  activeDotColor: FlutterFlowTheme.primaryColor,
+                                  dotColor: AppTheme.alternate,
+                                  activeDotColor: AppTheme.primaryColor,
                                   paintStyle: PaintingStyle.fill,
                                 ),
                               ),
@@ -203,8 +203,8 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                             )
                           : Text(
                               'Join as Guest',
-                              style: FlutterFlowTheme.bodyLarge.copyWith(
-                                color: FlutterFlowTheme.secondaryText,
+                              style: AppTheme.bodyLarge.copyWith(
+                                color: AppTheme.secondaryText,
                               ),
                             ),
                     ),

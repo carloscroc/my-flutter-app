@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_flutter_app/core/theme/flutter_flow_theme.dart';
+import 'package:my_flutter_app/core/theme/app_theme.dart';
 import 'package:my_flutter_app/core/routes/route_names.dart';
 import 'package:my_flutter_app/features/onboarding/presentation/widgets/primary_button_widget.dart';
 import 'package:my_flutter_app/features/auth/data/repositories/auth_repository.dart';

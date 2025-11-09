@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../core/theme/flutter_flow_theme.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class AccountSettingsPageWidget extends StatefulWidget {
   const AccountSettingsPageWidget({super.key});
@@ -28,7 +28,7 @@ class _AccountSettingsPageWidgetState
         automaticallyImplyLeading: true,
         title: Text(
           'Account Settings',
-          style: FlutterFlowTheme.of(context).paragraphP1SemiBold.copyWith(
+          style: AppTheme.of(context).paragraphP1SemiBold.copyWith(
                 fontFamily: GoogleFonts.inter().fontFamily,
                 color: Colors.white,
                 fontSize: 18,

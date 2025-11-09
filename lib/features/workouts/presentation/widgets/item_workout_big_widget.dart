@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import '../../../../core/theme/flutter_flow_theme.dart';
+import '../../../../core/theme/app_theme.dart';
 
 class ItemWorkoutBigWidget extends StatelessWidget {
   final String name;
@@ -37,21 +37,21 @@ class ItemWorkoutBigWidget extends StatelessWidget {
                 height: 200,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => Container(
-                  color: FlutterFlowTheme.secondaryBackground,
+                  color: AppTheme.secondaryBackground,
                   child: Center(
                     child: SizedBox(
                       width: 30,
                       height: 30,
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
-                          FlutterFlowTheme.primaryColor,
+                          AppTheme.primaryColor,
                         ),
                       ),
                     ),
                   ),
                 ),
                 errorWidget: (context, url, error) => Container(
-                  color: FlutterFlowTheme.secondaryBackground,
+                  color: AppTheme.secondaryBackground,
                   child: const Icon(
                     Icons.fitness_center,
                     size: 60,
@@ -65,7 +65,7 @@ class ItemWorkoutBigWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: Text(
                 name,
-                style: FlutterFlowTheme.bodyMedium.copyWith(
+                style: AppTheme.bodyMedium.copyWith(
                   color: const Color(0xFFF8F8F8),
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
