@@ -1,0 +1,146 @@
+{
+  "source": "C:\\Users\\thebe\\my-flutter-app\\import\\extracting\\dashboard.example.png",
+  "image_size": {
+    "w": 278,
+    "h": 604
+  },
+  "palette": [
+    {
+      "rgb": [
+        26,
+        26,
+        24
+      ],
+      "hex": "#1a1a18"
+    },
+    {
+      "rgb": [
+        93,
+        95,
+        92
+      ],
+      "hex": "#5d5f5c"
+    },
+    {
+      "rgb": [
+        77,
+        79,
+        46
+      ],
+      "hex": "#4d4f2e"
+    },
+    {
+      "rgb": [
+        154,
+        155,
+        153
+      ],
+      "hex": "#9a9b99"
+    },
+    {
+      "rgb": [
+        222,
+        222,
+        221
+      ],
+      "hex": "#dededd"
+    },
+    {
+      "rgb": [
+        237,
+        245,
+        111
+      ],
+      "hex": "#edf56f"
+    },
+    {
+      "rgb": [
+        71,
+        52,
+        44
+      ],
+      "hex": "#47342c"
+    },
+    {
+      "rgb": [
+        157,
+        153,
+        103
+      ],
+      "hex": "#9d9967"
+    }
+  ],
+  "rects": [
+    {
+      "palette_index": 0,
+      "x": 0,
+      "y": 0,
+      "w": 278,
+      "h": 602,
+      "area": 167356
+    },
+    {
+      "palette_index": 1,
+      "x": 158,
+      "y": 396,
+      "w": 91,
+      "h": 47,
+      "area": 4277
+    },
+    {
+      "palette_index": 1,
+      "x": 201,
+      "y": 408,
+      "w": 52,
+      "h": 63,
+      "area": 3276
+    },
+    {
+      "palette_index": 1,
+      "x": 104,
+      "y": 511,
+      "w": 149,
+      "h": 34,
+      "area": 5066
+    },
+    {
+      "palette_index": 2,
+      "x": 0,
+      "y": 132,
+      "w": 278,
+      "h": 472,
+      "area": 131216
+    },
+    {
+      "palette_index": 3,
+      "x": 213,
+      "y": 397,
+      "w": 25,
+      "h": 71,
+      "area": 1775
+    },
+    {
+      "palette_index": 5,
+      "x": 18,
+      "y": 361,
+      "w": 59,
+      "h": 22,
+      "area": 1298
+    }
+  ],
+  "stats": {
+    "detected_rect_count": 7,
+    "median_width": 91,
+    "median_height": 63,
+    "median_x": 104,
+    "median_y": 396
+  },
+  "spacing": {
+    "vertical_gaps": [
+      40
+    ],
+    "horizontal_gaps": [],
+    "median_vertical_gap": 40,
+    "median_horizontal_gap": null
+  }
+}
