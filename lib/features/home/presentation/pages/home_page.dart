@@ -6,6 +6,7 @@ import 'package:my_flutter_app/features/home/presentation/widgets/item_meditativ
 import 'package:my_flutter_app/features/home/presentation/widgets/week_calendar_widget.dart';
 import 'package:my_flutter_app/features/calendar/presentation/pages/calendar_detail_page.dart';
 import 'package:provider/provider.dart';
+import 'package:my_flutter_app/features/profile/presentation/pages/profile_page.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({super.key});
@@ -69,11 +70,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                         const Spacer(),
                         IconButton(
-                          icon: const Icon(Icons.search),
+                          icon: const Icon(Icons.person_outline),
                           color: AppTheme.primaryText,
                           iconSize: 28,
                           onPressed: () {
-                            // Handle search tap
+                            // Navigate to Profile page
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProfilePageWidget(),
+                              ),
+                            );
                           },
                         ),
                       ],
@@ -82,20 +89,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                   // Welcome section
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
+                    padding: const EdgeInsets.fromLTRB(AppSpacing.lg, 20, AppSpacing.lg, 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Welcome Back!',
-                          style: AppTheme.headlineLarge,
+                          style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         const SizedBox(height: 8),
                         Text(
                           'Ready to start your wellness journey?',
-                          style: AppTheme.bodyLarge.copyWith(
-                            color: AppTheme.secondaryText,
-                          ),
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                color: AppTheme.secondaryText,
+                              ),
                         ),
                       ],
                     ),
@@ -103,7 +110,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                   // Week Calendar Section
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
+                    padding: const EdgeInsets.fromLTRB(AppSpacing.lg, AppSpacing.lg, AppSpacing.lg, 0),
                     child: WeekCalendarWidget(
                       selectedDate: _model.selectedDate,
                       onDateTap: (date) {
@@ -123,20 +130,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                   // Featured Workouts Section
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 32, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(AppSpacing.lg, 32, 0, 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Featured Workouts',
-                          style: AppTheme.titleLarge,
+                          style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         const SizedBox(height: 16),
                         SizedBox(
                           height: 220,
                           child: ListView(
                             scrollDirection: Axis.horizontal,
-                            padding: const EdgeInsets.only(left: 24),
+                            padding: const EdgeInsets.only(left: AppSpacing.lg),
                             children: [
                               ItemFeaturedWorkoutsWidget(
                                 title: 'Morning Yoga',
@@ -174,13 +181,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                   // Meditation Section
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 32, 24, 24),
+                    padding: const EdgeInsets.fromLTRB(AppSpacing.lg, 32, AppSpacing.lg, AppSpacing.lg),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Guided Meditation',
-                          style: AppTheme.titleLarge,
+                          style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         const SizedBox(height: 16),
                         ItemMeditiveVerticalWidget(

@@ -23,23 +23,17 @@ class ItemMeditiveVerticalWidget extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),
         decoration: BoxDecoration(
-          color: AppTheme.secondaryBackground,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(AppTokens.cardRadius),
+          boxShadow: AppTokens.cardShadow,
         ),
         child: Row(
           children: [
             if (imageUrl != null)
               ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(16),
-                  bottomLeft: Radius.circular(16),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(AppTokens.cardRadius),
+                  bottomLeft: Radius.circular(AppTokens.cardRadius),
                 ),
                 child: CachedNetworkImage(
                   imageUrl: imageUrl!,
@@ -60,13 +54,13 @@ class ItemMeditiveVerticalWidget extends StatelessWidget {
               ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(AppSpacing.md),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       title,
-                      style: AppTheme.titleMedium,
+                      style: Theme.of(context).textTheme.headlineSmall,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -74,7 +68,7 @@ class ItemMeditiveVerticalWidget extends StatelessWidget {
                       const SizedBox(height: 4),
                       Text(
                         subtitle!,
-                        style: AppTheme.bodySmall,
+                        style: Theme.of(context).textTheme.bodyMedium,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

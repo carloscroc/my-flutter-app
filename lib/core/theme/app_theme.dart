@@ -19,19 +19,20 @@ class AppTheme {
   }
 
   // Color definitions (migrated from the former FlutterFlow theme)
-  static const Color primaryColor = Color(0xFFC7B5A7);
-  static const Color secondaryColor = Color(0xFF8B6B5A);
+  // Design-system tokens (styles-new.md)
+  static const Color primaryColor = Color(0xFFFF8C42); // warm orange accent
+  static const Color secondaryColor = Color(0xFF26C6A6); // calm teal (success)
   static const Color tertiaryColor = Color(0xFF7D5A4A);
   static const Color alternate = Color(0xFFF7F3F0);
-  static const Color primaryText = Color(0xFF1C1B1F);
-  static const Color secondaryText = Color(0xFF6B6056);
-  static const Color primaryBackground = Color(0xFFFFF9F6);
+  static const Color primaryText = Color(0xFF111315); // deep text
+  static const Color secondaryText = Color(0xFF9E9E9E); // muted gray
+  static const Color primaryBackground = Color(0xFFFBFBFA); // warm light
   static const Color secondaryBackground = Color(0xFFF2EDE9);
   static const Color accent1 = Color(0xFFFFF1E6);
   static const Color accent2 = Color(0xFFFFD9BC);
   static const Color accent3 = Color(0xFFD1B7AA);
   static const Color accent4 = Color(0xFFACA38A);
-  static const Color success = Color(0xFF4CAF50);
+  static const Color success = Color(0xFF26C6A6);
   static const Color warning = Color(0xFFFFC107);
   static const Color error = Color(0xFFB3261E);
   static const Color info = Color(0xFF2196F3);
@@ -44,101 +45,68 @@ class AppTheme {
   static const Color error300 = Color(0xFFEF5350);
 
   // Text theme helpers
-  static TextTheme get textTheme => GoogleFonts.poppinsTextTheme();
-
-  static TextStyle get displayLarge => GoogleFonts.poppins(
-        fontSize: 57,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
+  static TextTheme get textTheme => GoogleFonts.interTextTheme().copyWith(
+        headlineLarge: GoogleFonts.inter(
+          fontSize: 30,
+          fontWeight: FontWeight.w700,
+          color: primaryText,
+        ),
+        headlineMedium: GoogleFonts.inter(
+          fontSize: 22,
+          fontWeight: FontWeight.w600,
+          color: primaryText,
+        ),
+        headlineSmall: GoogleFonts.inter(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: primaryText,
+        ),
+        bodyLarge: GoogleFonts.inter(
+          fontSize: 17,
+          fontWeight: FontWeight.w400,
+          color: primaryText,
+        ),
+        bodyMedium: GoogleFonts.inter(
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+          color: primaryText,
+        ),
+        labelMedium: GoogleFonts.inter(
+          fontSize: 13,
+          fontWeight: FontWeight.w500,
+          color: secondaryText,
+        ),
       );
 
-  static TextStyle get displayMedium => GoogleFonts.poppins(
-        fontSize: 45,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get displaySmall => GoogleFonts.poppins(
+  // Metric display style (largest metric emphasis)
+  static TextStyle get metricDisplay => GoogleFonts.inter(
         fontSize: 36,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
+        fontWeight: FontWeight.w700,
+        color: primaryColor,
       );
 
-  static TextStyle get headlineLarge => GoogleFonts.poppins(
-        fontSize: 32,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
+  // Backwards-compatible named styles used across the codebase.
+  static TextStyle get titleLarge => textTheme.headlineLarge ?? const TextStyle();
+  static TextStyle get titleMedium => textTheme.headlineMedium ?? const TextStyle();
+  static TextStyle get titleSmall => textTheme.headlineSmall ?? const TextStyle();
+  static TextStyle get bodySmall => textTheme.bodyMedium ?? const TextStyle();
 
-  static TextStyle get headlineMedium => GoogleFonts.poppins(
-        fontSize: 28,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get headlineSmall => GoogleFonts.poppins(
-        fontSize: 24,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get titleLarge => GoogleFonts.poppins(
-        fontSize: 22,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get titleMedium => GoogleFonts.poppins(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static TextStyle get titleSmall => GoogleFonts.poppins(
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static TextStyle get bodyLarge => GoogleFonts.poppins(
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get bodyMedium => GoogleFonts.poppins(
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get bodySmall => GoogleFonts.poppins(
-        fontSize: 12,
-        fontWeight: FontWeight.w400,
-        color: secondaryText,
-      );
-
-  static TextStyle get labelLarge => GoogleFonts.poppins(
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static TextStyle get labelMedium => GoogleFonts.poppins(
-        fontSize: 12,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static TextStyle get labelSmall => GoogleFonts.poppins(
-        fontSize: 11,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
+  // Additional compatibility shims for older callers
+  static TextStyle get displayLarge => textTheme.headlineLarge ?? const TextStyle();
+  static TextStyle get displayMedium => textTheme.headlineMedium ?? const TextStyle();
+  static TextStyle get displaySmall => textTheme.headlineSmall ?? const TextStyle();
+  static TextStyle get headlineLarge => textTheme.headlineLarge ?? const TextStyle();
+  static TextStyle get headlineMedium => textTheme.headlineMedium ?? const TextStyle();
+  static TextStyle get headlineSmall => textTheme.headlineSmall ?? const TextStyle();
+  static TextStyle get bodyLarge => textTheme.bodyLarge ?? const TextStyle();
+  static TextStyle get bodyMedium => textTheme.bodyMedium ?? const TextStyle();
+  static TextStyle get labelLarge => textTheme.labelLarge ?? const TextStyle();
+  static TextStyle get labelMedium => textTheme.labelMedium ?? const TextStyle();
+  static TextStyle get labelSmall => textTheme.labelSmall ?? const TextStyle();
 
   static ThemeData get theme => ThemeData(
         useMaterial3: true,
-        colorSchemeSeed: primaryColor,
+        colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
         scaffoldBackgroundColor: primaryBackground,
         textTheme: textTheme,
       );
@@ -148,6 +116,32 @@ class AppTheme {
   // expected `AppTheme.of(context)` to provide fields like
   // `desktopHeadingH6Bold`.
   static AppThemeData of(BuildContext context) => AppThemeData._instance;
+}
+
+/// Spacing and common dimension tokens.
+class AppSpacing {
+  AppSpacing._();
+  static const double xs = 4.0;
+  static const double sm = 8.0;
+  static const double md = 16.0;
+  static const double lg = 24.0;
+  static const double xl = 32.0;
+  static const double page = 48.0;
+}
+
+/// Card and elevation tokens.
+class AppTokens {
+  AppTokens._();
+  static const double cardRadius = 14.0;
+  static const List<BoxShadow> cardShadow = [
+    BoxShadow(
+      color: Color.fromRGBO(16, 16, 18, 0.06),
+      offset: Offset(0, 6),
+      blurRadius: 20,
+    ),
+  ];
+  static const double inputHeight = 56.0;
+  static const double inputRadius = 12.0;
 }
 
 /// Instance-backed theme adapter exposing commonly used fields.

@@ -62,30 +62,21 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    // Base translucent/background colors for glass effect
-    final glassStart =
-        isDark ? Colors.white.withValues(alpha: 0.06) : Colors.white.withValues(alpha: 0.12);
-    final glassEnd =
-        isDark ? Colors.white.withValues(alpha: 0.03) : Colors.white.withValues(alpha: 0.06);
-
-    final dayContainerColor = isDark
-        ? Colors.white.withValues(alpha: 0.03)
-        : Colors.white.withValues(alpha: 0.12);
-    final dayTextColor = isDark
-        ? const Color(0xFFBDBDBD)
-        : AppTheme.secondaryText;
+    // Subtle translucent values for light theme
+    final dayContainerColor = Colors.white.withOpacity(isDark ? 0.03 : 0.12);
+    final dayTextColor = isDark ? const Color(0xFFBDBDBD) : AppTheme.secondaryText;
     final dayNumberColor = isDark ? Colors.white : AppTheme.primaryText;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppTokens.cardRadius),
         child: Stack(
           children: [
             // Blurred backdrop
             Positioned.fill(
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
                 child: Container(
                   color: Colors.transparent,
                 ),
@@ -96,25 +87,9 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [glassStart, glassEnd],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  color: isDark
-                      ? Colors.white.withValues(alpha: 0.06)
-                      : Colors.white.withValues(alpha: 0.14),
-                  width: 1,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: isDark ? 0.35 : 0.08),
-                    blurRadius: 24,
-                    offset: const Offset(0, 8),
-                  ),
-                ],
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(AppTokens.cardRadius),
+                boxShadow: AppTokens.cardShadow,
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -150,9 +125,9 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
                                     color: isToday
                                         ? AppTheme.primaryColor
                                         : (isSelected
-                                            ? AppTheme.primaryColor.withValues(alpha: 0.12)
+                                            ? AppTheme.primaryColor.withOpacity(0.12)
                                             : dayContainerColor),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(12),
                                     border: isSelected && !isToday
                                         ? Border.all(
                                             color: AppTheme.primaryColor,
@@ -163,26 +138,23 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(
+                                        Text(
                                         dayNames[date.weekday % 7],
-                                        style: TextStyle(
-                                          color: isToday
-                                              ? (isDark ? AppTheme.primaryBackground : Colors.white)
-                                              : dayTextColor,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w500,
+                                        style: (isToday
+                                            ? Theme.of(context)
+                                              .textTheme
+                                              .labelMedium
+                                              ?.copyWith(color: Colors.white)
+                                            : Theme.of(context).textTheme.labelMedium?.copyWith(color: dayTextColor))
+                                          ?? const TextStyle(fontSize: 12),
                                         ),
-                                      ),
                                       const SizedBox(height: 4),
                                       Text(
                                         '${date.day}',
-                                        style: TextStyle(
-                                          color: isToday
-                                              ? (isDark ? AppTheme.primaryBackground : Colors.white)
-                                              : dayNumberColor,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                        ),
+                                        style: (isToday
+                                                ? AppTheme.metricDisplay.copyWith(color: Colors.white, fontSize: 16)
+                                                : Theme.of(context).textTheme.headlineSmall?.copyWith(fontSize: 16, color: dayNumberColor))
+                                            ?? const TextStyle(fontSize: 16),
                                       ),
                                     ],
                                   ),
