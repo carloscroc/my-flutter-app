@@ -22,9 +22,9 @@ class _AccountSettingsPageWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: AppTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: AppTheme.of(context).primaryBackground,
         automaticallyImplyLeading: true,
         title: Text(
           'Account Settings',
@@ -48,12 +48,12 @@ class _AccountSettingsPageWidgetState
                 Icon(
                   Icons.settings_outlined,
                   size: 80,
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: AppTheme.of(context).primary,
                 ),
                 SizedBox(height: 24),
                 Text(
                   'Account Settings',
-                  style: FlutterFlowTheme.of(context).desktopHeadingH6Bold.copyWith(
+                  style: AppTheme.of(context).desktopHeadingH6Bold.copyWith(
                         fontFamily: GoogleFonts.inter().fontFamily,
                         color: Colors.white,
                         fontSize: 24,
@@ -64,7 +64,7 @@ class _AccountSettingsPageWidgetState
                   'This page is coming soon.\nYou will be able to manage your account settings, change password, and more here.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: FlutterFlowTheme.of(context).neutral50,
+                    color: AppTheme.of(context).neutral50,
                     fontSize: 16,
                   ),
                 ),

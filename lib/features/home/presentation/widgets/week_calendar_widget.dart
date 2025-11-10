@@ -64,16 +64,16 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
 
     // Base translucent/background colors for glass effect
     final glassStart =
-        isDark ? Colors.white.withOpacity(0.06) : Colors.white.withOpacity(0.12);
+        isDark ? Colors.white.withValues(alpha: 0.06) : Colors.white.withValues(alpha: 0.12);
     final glassEnd =
-        isDark ? Colors.white.withOpacity(0.03) : Colors.white.withOpacity(0.06);
+        isDark ? Colors.white.withValues(alpha: 0.03) : Colors.white.withValues(alpha: 0.06);
 
     final dayContainerColor = isDark
-        ? Colors.white.withOpacity(0.03)
-        : Colors.white.withOpacity(0.12);
+        ? Colors.white.withValues(alpha: 0.03)
+        : Colors.white.withValues(alpha: 0.12);
     final dayTextColor = isDark
         ? const Color(0xFFBDBDBD)
-        : FlutterFlowTheme.secondaryText;
+        : AppTheme.secondaryText;
     final dayNumberColor = isDark ? Colors.white : AppTheme.primaryText;
 
     return Padding(
@@ -104,13 +104,13 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
                   color: isDark
-                      ? Colors.white.withOpacity(0.06)
-                      : Colors.white.withOpacity(0.14),
+                      ? Colors.white.withValues(alpha: 0.06)
+                      : Colors.white.withValues(alpha: 0.14),
                   width: 1,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(isDark ? 0.35 : 0.08),
+                    color: Colors.black.withValues(alpha: isDark ? 0.35 : 0.08),
                     blurRadius: 24,
                     offset: const Offset(0, 8),
                   ),
@@ -150,7 +150,7 @@ class _WeekCalendarWidgetState extends State<WeekCalendarWidget> {
                                     color: isToday
                                         ? AppTheme.primaryColor
                                         : (isSelected
-                                            ? AppTheme.primaryColor.withOpacity(0.12)
+                                            ? AppTheme.primaryColor.withValues(alpha: 0.12)
                                             : dayContainerColor),
                                     borderRadius: BorderRadius.circular(8),
                                     border: isSelected && !isToday

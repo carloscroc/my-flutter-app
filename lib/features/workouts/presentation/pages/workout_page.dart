@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../domain/models/workout_page_model.dart';
@@ -657,7 +656,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
               children: [
                 Text(
                   title,
-                  style: FlutterFlowTheme.titleMedium.copyWith(
+                  style: AppTheme.titleMedium.copyWith(
                     fontFamily: 'Inter',
                     color: const Color(0xFFF8F8F8),
                     fontSize: 18,
@@ -691,7 +690,7 @@ class _WorkoutPageWidgetState extends State<WorkoutPageWidget> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.secondaryBackground,
+          color: AppTheme.secondaryBackground,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(

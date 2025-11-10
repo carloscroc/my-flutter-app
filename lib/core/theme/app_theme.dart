@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'flutter_flow_theme.dart';
-// Re-export the original FlutterFlow theme so callers that import
-// `app_theme.dart` get both `AppTheme` and `FlutterFlowTheme` symbols.
-export 'flutter_flow_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+/// Consolidated application theme.
+///
+/// This file now contains the canonical theme implementation. It replaces
+/// the previous split implementation and removes the separate
+/// `flutter_flow_theme.dart` file so callers use `AppTheme`/`AppTheme.of`.
 class AppTheme {
   /// Preserve the existing named constructor for light theme
   static ThemeData light() {
@@ -16,73 +18,166 @@ class AppTheme {
     );
   }
 
-  // Adapter getters forwarding to FlutterFlowTheme so callers can use AppTheme
-  static Color get primaryColor => FlutterFlowTheme.primaryColor;
-  static Color get secondaryColor => FlutterFlowTheme.secondaryColor;
-  static Color get tertiaryColor => FlutterFlowTheme.tertiaryColor;
-  static Color get alternate => FlutterFlowTheme.alternate;
-  static Color get primaryText => FlutterFlowTheme.primaryText;
-  static Color get secondaryText => FlutterFlowTheme.secondaryText;
-  static Color get primaryBackground => FlutterFlowTheme.primaryBackground;
-  static Color get secondaryBackground => FlutterFlowTheme.secondaryBackground;
-  static Color get accent1 => FlutterFlowTheme.accent1;
-  static Color get accent2 => FlutterFlowTheme.accent2;
-  static Color get accent3 => FlutterFlowTheme.accent3;
-  static Color get accent4 => FlutterFlowTheme.accent4;
-  static Color get success => FlutterFlowTheme.success;
-  static Color get warning => FlutterFlowTheme.warning;
-  static Color get error => FlutterFlowTheme.error;
-  static Color get info => FlutterFlowTheme.info;
+  // Color definitions (migrated from the former FlutterFlow theme)
+  static const Color primaryColor = Color(0xFFC7B5A7);
+  static const Color secondaryColor = Color(0xFF8B6B5A);
+  static const Color tertiaryColor = Color(0xFF7D5A4A);
+  static const Color alternate = Color(0xFFF7F3F0);
+  static const Color primaryText = Color(0xFF1C1B1F);
+  static const Color secondaryText = Color(0xFF6B6056);
+  static const Color primaryBackground = Color(0xFFFFF9F6);
+  static const Color secondaryBackground = Color(0xFFF2EDE9);
+  static const Color accent1 = Color(0xFFFFF1E6);
+  static const Color accent2 = Color(0xFFFFD9BC);
+  static const Color accent3 = Color(0xFFD1B7AA);
+  static const Color accent4 = Color(0xFFACA38A);
+  static const Color success = Color(0xFF4CAF50);
+  static const Color warning = Color(0xFFFFC107);
+  static const Color error = Color(0xFFB3261E);
+  static const Color info = Color(0xFF2196F3);
 
-  static Color get primary => FlutterFlowTheme.primary;
-  static Color get darkMode800 => FlutterFlowTheme.darkMode800;
-  static Color get darkMode600 => FlutterFlowTheme.darkMode600;
-  static Color get neutral50 => FlutterFlowTheme.neutral50;
-  static Color get error300 => FlutterFlowTheme.error300;
+  // Additional colors
+  static const Color primary = primaryColor;
+  static const Color darkMode800 = Color(0xFF1C1C1E);
+  static const Color darkMode600 = Color(0xFF2C2C2E);
+  static const Color neutral50 = Color(0xFFFAFAFA);
+  static const Color error300 = Color(0xFFEF5350);
 
-  static TextTheme get textTheme => FlutterFlowTheme.textTheme;
+  // Text theme helpers
+  static TextTheme get textTheme => GoogleFonts.poppinsTextTheme();
 
-  static TextStyle get displayLarge => FlutterFlowTheme.displayLarge;
-  static TextStyle get displayMedium => FlutterFlowTheme.displayMedium;
-  static TextStyle get displaySmall => FlutterFlowTheme.displaySmall;
-  static TextStyle get headlineLarge => FlutterFlowTheme.headlineLarge;
-  static TextStyle get headlineMedium => FlutterFlowTheme.headlineMedium;
-  static TextStyle get headlineSmall => FlutterFlowTheme.headlineSmall;
-  static TextStyle get titleLarge => FlutterFlowTheme.titleLarge;
-  static TextStyle get titleMedium => FlutterFlowTheme.titleMedium;
-  static TextStyle get titleSmall => FlutterFlowTheme.titleSmall;
-  static TextStyle get bodyLarge => FlutterFlowTheme.bodyLarge;
-  static TextStyle get bodyMedium => FlutterFlowTheme.bodyMedium;
-  static TextStyle get bodySmall => FlutterFlowTheme.bodySmall;
-  static TextStyle get labelLarge => FlutterFlowTheme.labelLarge;
-  static TextStyle get labelMedium => FlutterFlowTheme.labelMedium;
-  static TextStyle get labelSmall => FlutterFlowTheme.labelSmall;
+  static TextStyle get displayLarge => GoogleFonts.poppins(
+        fontSize: 57,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
 
-  static ThemeData get theme => FlutterFlowTheme.theme;
+  static TextStyle get displayMedium => GoogleFonts.poppins(
+        fontSize: 45,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
 
-  // Compatibility instance-based access returning a public adapter type
-  // Return the underlying FlutterFlow theme data dynamically to preserve
-  // all existing members callers may expect. This avoids exposing private
-  // types in the public API while keeping compatibility during the
-  // refactor to `AppTheme`.
-  static dynamic of(BuildContext context) => FlutterFlowTheme.of(context);
+  static TextStyle get displaySmall => GoogleFonts.poppins(
+        fontSize: 36,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
+
+  static TextStyle get headlineLarge => GoogleFonts.poppins(
+        fontSize: 32,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
+
+  static TextStyle get headlineMedium => GoogleFonts.poppins(
+        fontSize: 28,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
+
+  static TextStyle get headlineSmall => GoogleFonts.poppins(
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
+
+  static TextStyle get titleLarge => GoogleFonts.poppins(
+        fontSize: 22,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
+
+  static TextStyle get titleMedium => GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: primaryText,
+      );
+
+  static TextStyle get titleSmall => GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: primaryText,
+      );
+
+  static TextStyle get bodyLarge => GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
+
+  static TextStyle get bodyMedium => GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: primaryText,
+      );
+
+  static TextStyle get bodySmall => GoogleFonts.poppins(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: secondaryText,
+      );
+
+  static TextStyle get labelLarge => GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: primaryText,
+      );
+
+  static TextStyle get labelMedium => GoogleFonts.poppins(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: primaryText,
+      );
+
+  static TextStyle get labelSmall => GoogleFonts.poppins(
+        fontSize: 11,
+        fontWeight: FontWeight.w500,
+        color: primaryText,
+      );
+
+  static ThemeData get theme => ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: primaryColor,
+        scaffoldBackgroundColor: primaryBackground,
+        textTheme: textTheme,
+      );
+
+  // Instance-like access for the subset of properties used across widgets.
+  // Returning a stable singleton keeps compatibility with prior code that
+  // expected `AppTheme.of(context)` to provide fields like
+  // `desktopHeadingH6Bold`.
+  static AppThemeData of(BuildContext context) => AppThemeData._instance;
 }
 
-/// Public adapter that exposes the subset of theme properties used across the app.
+/// Instance-backed theme adapter exposing commonly used fields.
 class AppThemeData {
-  final dynamic _ffData;
+  static final AppThemeData _instance = AppThemeData._();
+  AppThemeData._();
 
-  AppThemeData._fromFlutterFlow(this._ffData);
+  Color get primaryBackground => AppTheme.primaryBackground;
+  Color get primaryText => AppTheme.primaryText;
+  Color get primary => AppTheme.primary;
+  Color get darkMode800 => AppTheme.darkMode800;
+  Color get darkMode600 => AppTheme.darkMode600;
+  Color get neutral50 => AppTheme.neutral50;
+  Color get error300 => AppTheme.error300;
 
-  Color get primaryBackground => _ffData.primaryBackground;
-  Color get primaryText => _ffData.primaryText;
-  Color get primary => _ffData.primary;
-  Color get darkMode800 => _ffData.darkMode800;
-  Color get darkMode600 => _ffData.darkMode600;
-  Color get neutral50 => _ffData.neutral50;
-  Color get error300 => _ffData.error300;
+  TextStyle get paragraphP1SemiBold => GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: AppTheme.primaryText,
+      );
 
-  TextStyle get paragraphP1SemiBold => _ffData.paragraphP1SemiBold;
-  TextStyle get desktopHeadingH6Bold => _ffData.desktopHeadingH6Bold;
-  TextStyle get mobileHeadingH6Medium => _ffData.mobileHeadingH6Medium;
+  TextStyle get desktopHeadingH6Bold => GoogleFonts.inter(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: AppTheme.primaryText,
+      );
+
+  TextStyle get mobileHeadingH6Medium => GoogleFonts.inter(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+        color: AppTheme.primaryText,
+      );
 }

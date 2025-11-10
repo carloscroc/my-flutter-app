@@ -57,9 +57,9 @@ class _WelcomeSignUpPageWidgetState extends State<WelcomeSignUpPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: FlutterFlowTheme.primaryBackground,
+      backgroundColor: AppTheme.primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.primaryBackground,
+        backgroundColor: AppTheme.primaryBackground,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -76,13 +76,13 @@ class _WelcomeSignUpPageWidgetState extends State<WelcomeSignUpPageWidget> {
               children: [
                 Text(
                   'Create Account',
-                  style: FlutterFlowTheme.headlineLarge,
+                  style: AppTheme.headlineLarge,
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'Sign up to get started',
-                  style: FlutterFlowTheme.bodyLarge.copyWith(
-                    color: FlutterFlowTheme.secondaryText,
+                  style: AppTheme.bodyLarge.copyWith(
+                    color: AppTheme.secondaryText,
                   ),
                 ),
                 const SizedBox(height: 32),
@@ -151,8 +151,8 @@ class _WelcomeSignUpPageWidgetState extends State<WelcomeSignUpPageWidget> {
                     onPressed: () => context.go(RouteNames.welcomeLogin),
                     child: Text(
                       'Already have an account? Log in',
-                      style: FlutterFlowTheme.bodyMedium.copyWith(
-                        color: FlutterFlowTheme.primaryColor,
+                      style: AppTheme.bodyMedium.copyWith(
+                        color: AppTheme.primaryColor,
                       ),
                     ),
                   ),

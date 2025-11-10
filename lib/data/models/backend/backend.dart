@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 
 class FirebaseBackend {
   static FirebaseFirestore? _firestore;
@@ -14,7 +15,7 @@ class FirebaseBackend {
       await Firebase.initializeApp();
     } catch (e) {
       // Firebase already initialized or error
-      print('Firebase initialization: $e');
+      debugPrint('Firebase initialization: $e');
     }
   }
 

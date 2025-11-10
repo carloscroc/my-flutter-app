@@ -20,9 +20,9 @@ class _ActivityPageWidgetState extends State<ActivityPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: AppTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: AppTheme.of(context).primaryBackground,
         automaticallyImplyLeading: true,
         title: Text(
           'Activity',
@@ -46,12 +46,12 @@ class _ActivityPageWidgetState extends State<ActivityPageWidget> {
                 Icon(
                   Icons.show_chart,
                   size: 80,
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: AppTheme.of(context).primary,
                 ),
                 SizedBox(height: 24),
                 Text(
                   'Activity',
-                  style: FlutterFlowTheme.of(context).desktopHeadingH6Bold.copyWith(
+                  style: AppTheme.of(context).desktopHeadingH6Bold.copyWith(
                         fontFamily: GoogleFonts.inter().fontFamily,
                         color: Colors.white,
                         fontSize: 24,
@@ -62,7 +62,7 @@ class _ActivityPageWidgetState extends State<ActivityPageWidget> {
                   'This page is coming soon.\nYou will be able to view your activity history and statistics here.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: FlutterFlowTheme.of(context).neutral50,
+                    color: AppTheme.of(context).neutral50,
                     fontSize: 16,
                   ),
                 ),

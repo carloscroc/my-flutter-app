@@ -62,7 +62,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                   font: GoogleFonts.inter(
                     fontWeight: FontWeight.w600,
                     fontStyle: AppTheme.of(context)
-                      .paragraphP1SemiBold
+                        .paragraphP1SemiBold
                         .fontStyle,
                   ),
                   color: Colors.white,
@@ -70,7 +70,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                   fontStyle: AppTheme.of(context)
-                    .paragraphP1SemiBold
+                      .paragraphP1SemiBold
                       .fontStyle,
                 ),
           ),
@@ -92,12 +92,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                     child: AuthUserStreamWidget(
                       builder: (context) => Text(
                         currentUserDisplayName,
-                        style: FlutterFlowTheme.of(context)
-                             .desktopHeadingH6Bold
+                        style: AppTheme.of(context)
+                            .desktopHeadingH6Bold
                             .override(
                               font: GoogleFonts.inter(
                                 fontWeight: FontWeight.bold,
-                                fontStyle: FlutterFlowTheme.of(context)
+                                fontStyle: AppTheme.of(context)
                                     .desktopHeadingH6Bold
                                     .fontStyle,
                               ),
@@ -105,7 +105,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               fontSize: 20,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
+                              fontStyle: AppTheme.of(context)
                                   .desktopHeadingH6Bold
                                   .fontStyle,
                             ),
@@ -115,7 +115,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).darkMode800,
+                      color: AppTheme.of(context).darkMode800,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Padding(
@@ -137,7 +137,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               children: [
                                 Icon(
                                   FFIcons.kprofileOutline,
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: AppTheme.of(context).primary,
                                   size: 24,
                                 ),
                                 Expanded(
@@ -151,23 +151,23 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     },
                                     child: Text(
                                       'Personal Details',
-                                      style: FlutterFlowTheme.of(context)
+                                      style: AppTheme.of(context)
                                           .mobileHeadingH6Medium
                                           .override(
                                             font: GoogleFonts.inter(
                                               fontWeight: FontWeight.w500,
                                               fontStyle:
-                                                  FlutterFlowTheme.of(context)
+                                                  AppTheme.of(context)
                                                       .mobileHeadingH6Medium
                                                       .fontStyle,
                                             ),
-                                            color: FlutterFlowTheme.of(context)
+                                            color: AppTheme.of(context)
                                                 .neutral50,
                                             fontSize: 18,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
-                                                FlutterFlowTheme.of(context)
+                                                AppTheme.of(context)
                                                     .mobileHeadingH6Medium
                                                     .fontStyle,
                                           ),
@@ -176,8 +176,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 ),
                                 Icon(
                                   Icons.arrow_forward_ios,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: AppTheme.of(context).primaryText,
                                   size: 20,
                                 ),
                               ].divide(SizedBox(width: 16)),
@@ -185,7 +184,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           ),
                           Divider(
                             thickness: 2,
-                            color: FlutterFlowTheme.of(context).darkMode600,
+                            color: AppTheme.of(context).darkMode600,
                           ),
                           InkWell(
                             splashColor: Colors.transparent,
@@ -200,7 +199,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               children: [
                                 Icon(
                                   FFIcons.kactivity,
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: AppTheme.of(context).primary,
                                   size: 24,
                                 ),
                                 Expanded(
@@ -214,23 +213,23 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     },
                                     child: Text(
                                       'Activity',
-                                      style: FlutterFlowTheme.of(context)
+                                      style: AppTheme.of(context)
                                           .mobileHeadingH6Medium
                                           .override(
                                             font: GoogleFonts.inter(
                                               fontWeight: FontWeight.w500,
                                               fontStyle:
-                                                  FlutterFlowTheme.of(context)
+                                                  AppTheme.of(context)
                                                       .mobileHeadingH6Medium
                                                       .fontStyle,
                                             ),
-                                            color: FlutterFlowTheme.of(context)
+                                            color: AppTheme.of(context)
                                                 .neutral50,
                                             fontSize: 18,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
-                                                FlutterFlowTheme.of(context)
+                                                AppTheme.of(context)
                                                     .mobileHeadingH6Medium
                                                     .fontStyle,
                                           ),
@@ -239,8 +238,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 ),
                                 Icon(
                                   Icons.arrow_forward_ios,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: AppTheme.of(context).primaryText,
                                   size: 20,
                                 ),
                               ].divide(SizedBox(width: 16)),
@@ -248,7 +246,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           ),
                           Divider(
                             thickness: 2,
-                            color: FlutterFlowTheme.of(context).darkMode600,
+                            color: AppTheme.of(context).darkMode600,
                           ),
                           InkWell(
                             splashColor: Colors.transparent,
@@ -263,29 +261,29 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               children: [
                                 Icon(
                                   FFIcons.ksaved,
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: AppTheme.of(context).primary,
                                   size: 24,
                                 ),
                                 Expanded(
                                   child: Text(
                                     'Saved',
-                                    style: FlutterFlowTheme.of(context)
+                                    style: AppTheme.of(context)
                                         .mobileHeadingH6Medium
                                         .override(
                                           font: GoogleFonts.inter(
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
-                                                FlutterFlowTheme.of(context)
+                                                AppTheme.of(context)
                                                     .mobileHeadingH6Medium
                                                     .fontStyle,
                                           ),
-                                          color: FlutterFlowTheme.of(context)
+                                          color: AppTheme.of(context)
                                               .neutral50,
                                           fontSize: 18,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
-                                              FlutterFlowTheme.of(context)
+                                              AppTheme.of(context)
                                                   .mobileHeadingH6Medium
                                                   .fontStyle,
                                         ),
@@ -293,8 +291,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 ),
                                 Icon(
                                   Icons.arrow_forward_ios,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: AppTheme.of(context).primaryText,
                                   size: 20,
                                 ),
                               ].divide(SizedBox(width: 16)),
@@ -302,35 +299,35 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           ),
                           Divider(
                             thickness: 2,
-                            color: FlutterFlowTheme.of(context).darkMode600,
+                            color: AppTheme.of(context).darkMode600,
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Icon(
                                 FFIcons.knotification,
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: AppTheme.of(context).primary,
                                 size: 24,
                               ),
                               Expanded(
                                 child: Text(
                                   'Notifications',
-                                  style: FlutterFlowTheme.of(context)
+                                  style: AppTheme.of(context)
                                       .mobileHeadingH6Medium
                                       .override(
                                         font: GoogleFonts.inter(
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
-                                              FlutterFlowTheme.of(context)
+                                              AppTheme.of(context)
                                                   .mobileHeadingH6Medium
                                                   .fontStyle,
                                         ),
-                                        color: FlutterFlowTheme.of(context)
+                                        color: AppTheme.of(context)
                                             .neutral50,
                                         fontSize: 18,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
+                                        fontStyle: AppTheme.of(context)
                                             .mobileHeadingH6Medium
                                             .fontStyle,
                                       ),
@@ -338,42 +335,42 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: AppTheme.of(context).primaryText,
                                 size: 20,
                               ),
                             ].divide(SizedBox(width: 16)),
                           ),
                           Divider(
                             thickness: 2,
-                            color: FlutterFlowTheme.of(context).darkMode600,
+                            color: AppTheme.of(context).darkMode600,
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Icon(
                                 FFIcons.kworkoutOutline,
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: AppTheme.of(context).primary,
                                 size: 24,
                               ),
                               Expanded(
                                 child: Text(
                                   'Workout Preferences',
-                                  style: FlutterFlowTheme.of(context)
+                                  style: AppTheme.of(context)
                                       .mobileHeadingH6Medium
                                       .override(
                                         font: GoogleFonts.inter(
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
-                                              FlutterFlowTheme.of(context)
+                                              AppTheme.of(context)
                                                   .mobileHeadingH6Medium
                                                   .fontStyle,
                                         ),
-                                        color: FlutterFlowTheme.of(context)
+                                        color: AppTheme.of(context)
                                             .neutral50,
                                         fontSize: 18,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
+                                        fontStyle: AppTheme.of(context)
                                             .mobileHeadingH6Medium
                                             .fontStyle,
                                       ),
@@ -381,42 +378,42 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: AppTheme.of(context).primaryText,
                                 size: 20,
                               ),
                             ].divide(SizedBox(width: 16)),
                           ),
                           Divider(
                             thickness: 2,
-                            color: FlutterFlowTheme.of(context).darkMode600,
+                            color: AppTheme.of(context).darkMode600,
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Icon(
                                 FFIcons.kdiet,
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: AppTheme.of(context).primary,
                                 size: 24,
                               ),
                               Expanded(
                                 child: Text(
                                   'Diet Preferences',
-                                  style: FlutterFlowTheme.of(context)
+                                  style: AppTheme.of(context)
                                       .mobileHeadingH6Medium
                                       .override(
                                         font: GoogleFonts.inter(
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
-                                              FlutterFlowTheme.of(context)
+                                              AppTheme.of(context)
                                                   .mobileHeadingH6Medium
                                                   .fontStyle,
                                         ),
-                                        color: FlutterFlowTheme.of(context)
+                                        color: AppTheme.of(context)
                                             .neutral50,
                                         fontSize: 18,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
+                                        fontStyle: AppTheme.of(context)
                                             .mobileHeadingH6Medium
                                             .fontStyle,
                                       ),
@@ -424,14 +421,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: AppTheme.of(context).primaryText,
                                 size: 20,
                               ),
                             ].divide(SizedBox(width: 16)),
                           ),
                           Divider(
                             thickness: 2,
-                            color: FlutterFlowTheme.of(context).darkMode600,
+                            color: AppTheme.of(context).darkMode600,
                           ),
                           InkWell(
                             splashColor: Colors.transparent,
@@ -446,29 +443,29 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               children: [
                                 Icon(
                                   FFIcons.ksetting,
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: AppTheme.of(context).primary,
                                   size: 24,
                                 ),
                                 Expanded(
                                   child: Text(
                                     'Account Settings',
-                                    style: FlutterFlowTheme.of(context)
+                                    style: AppTheme.of(context)
                                         .mobileHeadingH6Medium
                                         .override(
                                           font: GoogleFonts.inter(
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
-                                                FlutterFlowTheme.of(context)
+                                                AppTheme.of(context)
                                                     .mobileHeadingH6Medium
                                                     .fontStyle,
                                           ),
-                                          color: FlutterFlowTheme.of(context)
+                                          color: AppTheme.of(context)
                                               .neutral50,
                                           fontSize: 18,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
-                                              FlutterFlowTheme.of(context)
+                                              AppTheme.of(context)
                                                   .mobileHeadingH6Medium
                                                   .fontStyle,
                                         ),
@@ -476,8 +473,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 ),
                                 Icon(
                                   Icons.arrow_forward_ios,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: AppTheme.of(context).primaryText,
                                   size: 20,
                                 ),
                               ].divide(SizedBox(width: 16)),
@@ -490,7 +486,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).darkMode800,
+                      color: AppTheme.of(context).darkMode800,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Padding(
@@ -504,28 +500,28 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                             children: [
                               Icon(
                                 FFIcons.khelp,
-                                color: FlutterFlowTheme.of(context).primary,
+                                color: AppTheme.of(context).primary,
                                 size: 24,
                               ),
                               Expanded(
                                 child: Text(
                                   'Help and Support',
-                                  style: FlutterFlowTheme.of(context)
+                                  style: AppTheme.of(context)
                                       .mobileHeadingH6Medium
                                       .override(
                                         font: GoogleFonts.inter(
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
-                                              FlutterFlowTheme.of(context)
+                                              AppTheme.of(context)
                                                   .mobileHeadingH6Medium
                                                   .fontStyle,
                                         ),
-                                        color: FlutterFlowTheme.of(context)
+                                        color: AppTheme.of(context)
                                             .neutral50,
                                         fontSize: 18,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
-                                        fontStyle: FlutterFlowTheme.of(context)
+                                        fontStyle: AppTheme.of(context)
                                             .mobileHeadingH6Medium
                                             .fontStyle,
                                       ),
@@ -533,14 +529,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: AppTheme.of(context).primaryText,
                                 size: 20,
                               ),
                             ].divide(SizedBox(width: 16)),
                           ),
                           Divider(
                             thickness: 2,
-                            color: FlutterFlowTheme.of(context).darkMode600,
+                            color: AppTheme.of(context).darkMode600,
                           ),
                           InkWell(
                             splashColor: Colors.transparent,
@@ -548,43 +544,42 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              GoRouter.of(context).prepareAuthEvent();
+                              final router = GoRouter.of(context);
+                              router.prepareAuthEvent();
                               await AuthUtil.signOut();
                               if (!mounted) return;
-                              GoRouter.of(context).clearRedirectLocation();
+                              router.clearRedirectLocation();
 
-                              context.goNamedAuth(
-                                  OnboardingPageWidget.routePath,
-                                  mounted);
+                                router.go(OnboardingPageWidget.routePath);
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Icon(
                                   FFIcons.koutline,
-                                  color: FlutterFlowTheme.of(context).error300,
+                                  color: AppTheme.of(context).error300,
                                   size: 24,
                                 ),
                                 Expanded(
                                   child: Text(
                                     'Log Out',
-                                    style: FlutterFlowTheme.of(context)
+                                    style: AppTheme.of(context)
                                         .mobileHeadingH6Medium
                                         .override(
                                           font: GoogleFonts.inter(
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
-                                                FlutterFlowTheme.of(context)
+                                                AppTheme.of(context)
                                                     .mobileHeadingH6Medium
                                                     .fontStyle,
                                           ),
-                                          color: FlutterFlowTheme.of(context)
+                                          color: AppTheme.of(context)
                                               .error300,
                                           fontSize: 18,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           fontStyle:
-                                              FlutterFlowTheme.of(context)
+                                              AppTheme.of(context)
                                                   .mobileHeadingH6Medium
                                                   .fontStyle,
                                         ),
@@ -605,6 +600,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
       ),
     );
   }
+
 }
 
 // Extension for TextStyle override to match FlutterFlow pattern

@@ -1,167 +1,51 @@
+// Compatibility shim: forward the old `FlutterFlowTheme` API to `AppTheme`.
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'app_theme.dart';
 
+/// Deprecated compatibility wrapper. Code should prefer `AppTheme`.
 class FlutterFlowTheme {
-  static const Color primaryColor = Color(0xFFC7B5A7);
-  static const Color secondaryColor = Color(0xFF8B6B5A);
-  static const Color tertiaryColor = Color(0xFF7D5A4A);
-  static const Color alternate = Color(0xFFF7F3F0);
-  static const Color primaryText = Color(0xFF1C1B1F);
-  static const Color secondaryText = Color(0xFF6B6056);
-  static const Color primaryBackground = Color(0xFFFFF9F6);
-  static const Color secondaryBackground = Color(0xFFF2EDE9);
-  static const Color accent1 = Color(0xFFFFF1E6);
-  static const Color accent2 = Color(0xFFFFD9BC);
-  static const Color accent3 = Color(0xFFD1B7AA);
-  static const Color accent4 = Color(0xFFACA38A);
-  static const Color success = Color(0xFF4CAF50);
-  static const Color warning = Color(0xFFFFC107);
-  static const Color error = Color(0xFFB3261E);
-  static const Color info = Color(0xFF2196F3);
+  static Color get primaryColor => AppTheme.primaryColor;
+  static Color get secondaryColor => AppTheme.secondaryColor;
+  static Color get tertiaryColor => AppTheme.tertiaryColor;
+  static Color get alternate => AppTheme.alternate;
+  static Color get primaryText => AppTheme.primaryText;
+  static Color get secondaryText => AppTheme.secondaryText;
+  static Color get primaryBackground => AppTheme.primaryBackground;
+  static Color get secondaryBackground => AppTheme.secondaryBackground;
+  static Color get accent1 => AppTheme.accent1;
+  static Color get accent2 => AppTheme.accent2;
+  static Color get accent3 => AppTheme.accent3;
+  static Color get accent4 => AppTheme.accent4;
+  static Color get success => AppTheme.success;
+  static Color get warning => AppTheme.warning;
+  static Color get error => AppTheme.error;
+  static Color get info => AppTheme.info;
 
-  // Additional colors for profile page
-  static const Color primary = primaryColor;
-  static const Color darkMode800 = Color(0xFF1C1C1E);
-  static const Color darkMode600 = Color(0xFF2C2C2E);
-  static const Color neutral50 = Color(0xFFFAFAFA);
-  static const Color error300 = Color(0xFFEF5350);
+  static Color get primary => AppTheme.primary;
+  static Color get darkMode800 => AppTheme.darkMode800;
+  static Color get darkMode600 => AppTheme.darkMode600;
+  static Color get neutral50 => AppTheme.neutral50;
+  static Color get error300 => AppTheme.error300;
 
-  // Context-based theme access (FlutterFlow compatibility)
-  // Return type is dynamic to avoid exposing a private type in public API.
-  static dynamic of(BuildContext context) {
-    return _FlutterFlowThemeData._instance;
-  }
+  static TextTheme get textTheme => AppTheme.textTheme;
 
-  static TextTheme get textTheme => GoogleFonts.poppinsTextTheme();
+  static TextStyle get displayLarge => AppTheme.displayLarge;
+  static TextStyle get displayMedium => AppTheme.displayMedium;
+  static TextStyle get displaySmall => AppTheme.displaySmall;
+  static TextStyle get headlineLarge => AppTheme.headlineLarge;
+  static TextStyle get headlineMedium => AppTheme.headlineMedium;
+  static TextStyle get headlineSmall => AppTheme.headlineSmall;
+  static TextStyle get titleLarge => AppTheme.titleLarge;
+  static TextStyle get titleMedium => AppTheme.titleMedium;
+  static TextStyle get titleSmall => AppTheme.titleSmall;
+  static TextStyle get bodyLarge => AppTheme.bodyLarge;
+  static TextStyle get bodyMedium => AppTheme.bodyMedium;
+  static TextStyle get bodySmall => AppTheme.bodySmall;
+  static TextStyle get labelLarge => AppTheme.labelLarge;
+  static TextStyle get labelMedium => AppTheme.labelMedium;
+  static TextStyle get labelSmall => AppTheme.labelSmall;
 
-  static TextStyle get displayLarge => GoogleFonts.poppins(
-        fontSize: 57,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
+  static ThemeData get theme => AppTheme.theme;
 
-  static TextStyle get displayMedium => GoogleFonts.poppins(
-        fontSize: 45,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get displaySmall => GoogleFonts.poppins(
-        fontSize: 36,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get headlineLarge => GoogleFonts.poppins(
-        fontSize: 32,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get headlineMedium => GoogleFonts.poppins(
-        fontSize: 28,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get headlineSmall => GoogleFonts.poppins(
-        fontSize: 24,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get titleLarge => GoogleFonts.poppins(
-        fontSize: 22,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get titleMedium => GoogleFonts.poppins(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static TextStyle get titleSmall => GoogleFonts.poppins(
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static TextStyle get bodyLarge => GoogleFonts.poppins(
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get bodyMedium => GoogleFonts.poppins(
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-        color: primaryText,
-      );
-
-  static TextStyle get bodySmall => GoogleFonts.poppins(
-        fontSize: 12,
-        fontWeight: FontWeight.w400,
-        color: secondaryText,
-      );
-
-  static TextStyle get labelLarge => GoogleFonts.poppins(
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static TextStyle get labelMedium => GoogleFonts.poppins(
-        fontSize: 12,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static TextStyle get labelSmall => GoogleFonts.poppins(
-        fontSize: 11,
-        fontWeight: FontWeight.w500,
-        color: primaryText,
-      );
-
-  static ThemeData get theme => ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: primaryColor,
-        scaffoldBackgroundColor: primaryBackground,
-        textTheme: textTheme,
-      );
-}
-
-/// Instance-based theme data for FlutterFlow compatibility
-class _FlutterFlowThemeData {
-  static final _FlutterFlowThemeData _instance = _FlutterFlowThemeData._();
-  _FlutterFlowThemeData._();
-
-  // Color properties
-  Color get primaryBackground => FlutterFlowTheme.primaryBackground;
-  Color get primaryText => FlutterFlowTheme.primaryText;
-  Color get primary => FlutterFlowTheme.primary;
-  Color get darkMode800 => FlutterFlowTheme.darkMode800;
-  Color get darkMode600 => FlutterFlowTheme.darkMode600;
-  Color get neutral50 => FlutterFlowTheme.neutral50;
-  Color get error300 => FlutterFlowTheme.error300;
-
-  // Text styles for profile page
-  TextStyle get paragraphP1SemiBold => GoogleFonts.inter(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: FlutterFlowTheme.primaryText,
-      );
-
-  TextStyle get desktopHeadingH6Bold => GoogleFonts.inter(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: FlutterFlowTheme.primaryText,
-      );
-
-  TextStyle get mobileHeadingH6Medium => GoogleFonts.inter(
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
-        color: FlutterFlowTheme.primaryText,
-      );
+  static dynamic of(BuildContext context) => AppTheme.of(context);
 }

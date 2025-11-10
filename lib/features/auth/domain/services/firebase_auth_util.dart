@@ -58,7 +58,7 @@ class AuthUtil {
         password: password,
       );
     } catch (e) {
-      print('Sign in error: $e');
+      debugPrint('Sign in error: $e');
       return null;
     }
   }
@@ -74,7 +74,7 @@ class AuthUtil {
         password: password,
       );
     } catch (e) {
-      print('Sign up error: $e');
+      debugPrint('Sign up error: $e');
       return null;
     }
   }
@@ -84,7 +84,7 @@ class AuthUtil {
     try {
       return await _auth.signInAnonymously();
     } catch (e) {
-      print('Anonymous sign in error: $e');
+      debugPrint('Anonymous sign in error: $e');
       return null;
     }
   }
@@ -94,7 +94,7 @@ class AuthUtil {
     try {
       await _auth.signOut();
     } catch (e) {
-      print('Sign out error: $e');
+      debugPrint('Sign out error: $e');
     }
   }
 
@@ -103,7 +103,7 @@ class AuthUtil {
     try {
       await _auth.sendPasswordResetEmail(email: email);
     } catch (e) {
-      print('Password reset error: $e');
+      debugPrint('Password reset error: $e');
     }
   }
 
@@ -112,7 +112,7 @@ class AuthUtil {
     try {
       await currentUser?.updateDisplayName(displayName);
     } catch (e) {
-      print('Update display name error: $e');
+      debugPrint('Update display name error: $e');
     }
   }
 
@@ -121,7 +121,7 @@ class AuthUtil {
     try {
       await currentUser?.updatePhotoURL(photoUrl);
     } catch (e) {
-      print('Update photo URL error: $e');
+      debugPrint('Update photo URL error: $e');
     }
   }
 }

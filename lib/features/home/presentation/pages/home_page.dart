@@ -129,7 +129,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         Text(
                           'Featured Workouts',
-                          style: FlutterFlowTheme.titleLarge,
+                          style: AppTheme.titleLarge,
                         ),
                         const SizedBox(height: 16),
                         SizedBox(
@@ -180,7 +180,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         Text(
                           'Guided Meditation',
-                          style: FlutterFlowTheme.titleLarge,
+                          style: AppTheme.titleLarge,
                         ),
                         const SizedBox(height: 16),
                         ItemMeditiveVerticalWidget(

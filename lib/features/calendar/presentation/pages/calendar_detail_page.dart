@@ -121,56 +121,56 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
               eventLoader: _getWorkoutsForDay,
               calendarStyle: CalendarStyle(
                 todayDecoration: BoxDecoration(
-                  color: AppTheme.primaryColor.withOpacity(0.5),
+                  color: AppTheme.primaryColor.withValues(alpha: 0.5),
                   shape: BoxShape.circle,
                 ),
                 selectedDecoration: BoxDecoration(
-                  color: FlutterFlowTheme.primaryColor,
+                  color: AppTheme.primaryColor,
                   shape: BoxShape.circle,
                 ),
                 markerDecoration: BoxDecoration(
-                  color: FlutterFlowTheme.warning,
+                  color: AppTheme.warning,
                   shape: BoxShape.circle,
                 ),
                 defaultTextStyle: TextStyle(
-                  color: isDark ? Colors.white : FlutterFlowTheme.primaryText,
+                  color: isDark ? Colors.white : AppTheme.primaryText,
                 ),
                 weekendTextStyle: TextStyle(
                   color: isDark
                       ? Colors.white70
-                      : FlutterFlowTheme.secondaryText,
+                      : AppTheme.secondaryText,
                 ),
               ),
               headerStyle: HeaderStyle(
                 formatButtonVisible: true,
                 titleCentered: true,
                 formatButtonDecoration: BoxDecoration(
-                  color: FlutterFlowTheme.primaryColor.withValues(alpha: 0.1),
+                  color: AppTheme.primaryColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 formatButtonTextStyle: TextStyle(
-                  color: FlutterFlowTheme.primaryColor,
+                  color: AppTheme.primaryColor,
                 ),
                 titleTextStyle: TextStyle(
-                  color: FlutterFlowTheme.primaryText,
+                  color: AppTheme.primaryText,
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                 ),
                 leftChevronIcon: Icon(
                   Icons.chevron_left,
-                  color: FlutterFlowTheme.primaryText,
+                  color: AppTheme.primaryText,
                 ),
                 rightChevronIcon: Icon(
                   Icons.chevron_right,
-                  color: FlutterFlowTheme.primaryText,
+                  color: AppTheme.primaryText,
                 ),
               ),
               daysOfWeekStyle: DaysOfWeekStyle(
                 weekdayStyle: TextStyle(
-                  color: FlutterFlowTheme.secondaryText,
+                  color: AppTheme.secondaryText,
                 ),
                 weekendStyle: TextStyle(
-                  color: FlutterFlowTheme.secondaryText,
+                  color: AppTheme.secondaryText,
                 ),
               ),
             ),
@@ -182,7 +182,7 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
               decoration: BoxDecoration(
                 color: isDark
                     ? const Color(0xFF1E2324)
-                    : FlutterFlowTheme.secondaryBackground,
+                    : AppTheme.secondaryBackground,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Column(
@@ -194,14 +194,14 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
                       Text(
                         'Workouts for ${_formatDate(_selectedDay)}',
                         style: TextStyle(
-                          color: FlutterFlowTheme.primaryText,
+                          color: AppTheme.primaryText,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       Icon(
                         Icons.fitness_center,
-                        color: FlutterFlowTheme.warning,
+                        color: AppTheme.warning,
                         size: 24,
                       ),
                     ],
@@ -216,14 +216,14 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
                                 Icon(
                                   Icons.event_busy,
                                   size: 64,
-                                  color: FlutterFlowTheme.secondaryText
+                                  color: AppTheme.secondaryText
                                       .withValues(alpha: 0.5),
                                 ),
                                 const SizedBox(height: 16),
                                 Text(
                                   'No workouts planned',
                                   style: TextStyle(
-                                    color: FlutterFlowTheme.secondaryText,
+                                    color: AppTheme.secondaryText,
                                     fontSize: 16,
                                   ),
                                 ),
@@ -233,7 +233,7 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
                                   icon: const Icon(Icons.add),
                                   label: const Text('Add Workout'),
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: FlutterFlowTheme.primaryColor,
+                                    backgroundColor: AppTheme.primaryColor,
                                     foregroundColor: Colors.white,
                                   ),
                                 ),
@@ -251,7 +251,7 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
                                     : Colors.white,
                                 child: ListTile(
                                   leading: CircleAvatar(
-                                    backgroundColor: FlutterFlowTheme.primaryColor,
+                                    backgroundColor: AppTheme.primaryColor,
                                     child: const Icon(
                                       Icons.fitness_center,
                                       color: Colors.white,
@@ -261,14 +261,14 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
                                   title: Text(
                                     workout,
                                     style: TextStyle(
-                                      color: FlutterFlowTheme.primaryText,
+                                      color: AppTheme.primaryText,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   trailing: IconButton(
                                     icon: Icon(
                                       Icons.delete_outline,
-                                      color: FlutterFlowTheme.error,
+                                      color: AppTheme.error,
                                     ),
                                     onPressed: () => _deleteWorkout(index),
                                   ),
@@ -338,7 +338,7 @@ class _CalendarDetailPageState extends State<CalendarDetailPage> {
               }
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: FlutterFlowTheme.primaryColor,
+              backgroundColor: AppTheme.primaryColor,
               foregroundColor: Colors.white,
             ),
             child: const Text('Add'),

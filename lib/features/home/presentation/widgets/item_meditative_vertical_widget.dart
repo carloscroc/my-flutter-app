@@ -53,7 +53,7 @@ class ItemMeditiveVerticalWidget extends StatelessWidget {
                     ),
                   ),
                   errorWidget: (context, url, error) => Container(
-                    color: FlutterFlowTheme.alternate,
+                    color: AppTheme.alternate,
                     child: const Icon(Icons.error),
                   ),
                 ),
