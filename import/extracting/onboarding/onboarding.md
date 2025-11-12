@@ -1,3 +1,5 @@
+# this is the onboarding page from flutter flow 
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/onboarding_item/onboarding_item_widget.dart';

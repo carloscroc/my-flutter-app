@@ -1,0 +1,8 @@
+* [33mc899313[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/dashboard-tokens[m[33m)[m Restore onboarding-first main and routing from commit 83023ca
+* [33mf5c060d[m Add dashboard design tokens (example JSON)
+* [33m1e47202[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m home.page under pages folder
+* [33mbaf63da[m Add project structure: themes, routes, repos, utils, tests, CI, docs
+* [33m9e6bfb7[m chore: commit changes
+* [33mf0c80d9[m Organize project: add assets, lib/src folders, update pubspec and README
+* [33mf7d198c[m first commit
+* [33m3bfc7f7[m Initial commit from Specify template
