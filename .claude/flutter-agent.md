@@ -354,8 +354,30 @@ print(resp.content[0].text)
 
 ## What I Need From You (the human) to Start
 
-* Target app spec (even rough); brand seed color + radius preference.
-* Source code snippets or repo summary; analyzer output.
-* Any must‑use packages or constraints (e.g., keep Firebase, must support web).
+Below I convert the Client Platform MVP you pasted into a concrete intake answer so I can begin the audit and modernization work immediately. If any item is different from what you intend, correct it and I will update the plan.
 
-> Paste the kickoff message and initial code/context when ready. The agent will reply with a complete, step‑by‑step modernization plan and diffs.
+- **Target app (one‑line):** Trainer→Client mobile app: assigned workouts, frictionless offline‑first logging, progress visuals, and light trainer messaging.
+- **Primary users / roles:** Clients (primary), Trainers (admin/editor), optional trainer reviewers.
+- **Platform MVP:** iOS and Android (Flutter). Web/desktop optional later (not MVP).
+- **Core MVP features (as requirements):** Assigned workouts, workout player + offline logging + sync, progress & history, exercise library (read‑only), lightweight messaging, notifications, profile/onboarding.
+- **Branding tokens (recommended / placeholder):** No explicit brand tokens provided in the spec — suggested seed color `#2B6CB0` and corner radius `12` as defaults. If you have a seed hex and preferred radius, paste them and I will regenerate theme snippets and tokens accordingly.
+- **State management & navigation:** Prefer **Riverpod** (with codegen) and **go_router** (typed routes). These match the architectural defaults in the agent.
+- **Backend / Realtime / Auth (MVP):** Supabase Auth & Realtime (as noted in the spec). Postgres for primary storage, realtime via Supabase or Postgres replication. Offline queue + sync API required.
+- **Local storage / offline:** Local queue + conflict resolution; recommend `drift` or `isar` for structured local storage and `shared_preferences` for small flags. Logs must be durable offline and sync when online.
+- **Networking / API:** `dio` with interceptors and JSON models generated via `json_serializable`/`freezed` (or similar). Sync endpoint (batch apply + conflict report) required.
+- **Packages to keep / must‑use:** Supabase client (or chosen backend SDK), Riverpod, go_router, dio, json_serializable / freezed, drift|isar (local DB), flutter_localizations + intl. If you prefer alternatives, state them now.
+- **Packages to avoid (constraints):** Avoid GPL‑incompatible packages and platform‑specific plugins that block iOS/Android parity unless necessary. No wearables / nutrition / payment plugins for MVP.
+- **Non‑functional targets to enforce:** startup < 3s, input latency < 100ms, sync < 5s, WCAG AA accessibility, offline reliability (no lost logs), large touch targets >= 44px.
+- **Acceptance criteria (short):** After login with invite user sees assigned workout; can complete & log a workout offline and later sync with no data loss; can substitute exercises by equipment/muscle filters; rest timers and haptics work; progress graphs show volume & PRs.
+
+What I still need from you (actionable items — paste these into your reply):
+
+- `pubspec.yaml` content (or point me to it in the repo) so I can inventory dependencies and null‑safety status.
+- `flutter analyze` output (or permission to run it) so I can list analyzer warnings/errors to fix.
+- Any existing backend repo or API spec (if not, I will design a server API and Postgres schema aligned to the model in the spec).
+- Brand seed color hex + radius (if you want something other than the suggested defaults).
+- Confirmation on the exact offline DB choice (`drift` vs `isar`) and whether Supabase is mandatory (or if a custom backend is preferred).
+- Any packages that must be preserved (e.g., Firebase, Stripe) or banned for licensing/security reasons.
+
+If you want, I can automatically run a quick repo audit now (list `pubspec.yaml`, top `lib/` files, and run `flutter analyze`). Say “run checks” and I will proceed.
+
