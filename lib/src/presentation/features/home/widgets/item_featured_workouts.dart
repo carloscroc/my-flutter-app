@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/src/data/models/workout.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ItemFeaturedWorkouts extends StatelessWidget {
   final Workout workout;
@@ -22,7 +23,14 @@ class ItemFeaturedWorkouts extends StatelessWidget {
                   color: Colors.grey[300],
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                 ),
-                child: const Center(child: Icon(Icons.fitness_center, size: 48, color: Colors.white70)),
+                child: Center(
+                  child: SvgPicture.asset(
+                    'assets/images/bodybuilding.svg',
+                    width: 96,
+                    height: 64,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
             ),
             Padding(
