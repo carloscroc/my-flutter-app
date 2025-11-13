@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/src/data/models/workout.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ItemFeaturedWorkouts extends StatelessWidget {
   final Workout workout;
@@ -10,17 +11,34 @@ class ItemFeaturedWorkouts extends StatelessWidget {
     return SizedBox(
       width: 260,
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(child: Container(color: Colors.grey[300], child: const Center(child: Icon(Icons.fitness_center)))),
-              const SizedBox(height: 8),
-              Text(workout.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-              if (workout.shortDescription != null) Text(workout.shortDescription!),
-            ],
-          ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+                ),
+                child: const Center(child: Icon(Icons.fitness_center, size: 48, color: Colors.white70)),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(workout.name, style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w700)),
+                  if (workout.shortDescription != null) ...[
+                    const SizedBox(height: 6),
+                    Text(workout.shortDescription!, style: GoogleFonts.inter(color: Colors.grey[700])),
+                  ]
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
