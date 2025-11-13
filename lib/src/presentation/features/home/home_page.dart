@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:my_flutter_app/src/core/providers/user_provider.dart';
 import 'home_provider.dart';
 import 'widgets/item_featured_workouts.dart';
 import 'widgets/item_meditive_vertical.dart';
@@ -13,12 +16,14 @@ class HomePage extends ConsumerWidget {
     final featuredAsync = ref.watch(featuredWorkoutsProvider);
     final medAsync = ref.watch(meditativeMorningsProvider);
 
+    final userName = ref.watch(userNameProvider);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home', style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
+        title: Text(AppLocalizations.of(context)!.home, style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () => context.go('/notifications'), icon: const Icon(Icons.notifications)),
+          IconButton(onPressed: () => context.go('/search'), icon: const Icon(Icons.search)),
         ],
       ),
       body: SingleChildScrollView(
@@ -26,7 +31,7 @@ class HomePage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Good Morning, John', style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w700)),
+            Text(AppLocalizations.of(context)!.goodMorning(userName), style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w700)),
             const SizedBox(height: 12),
 
             // Day selector (simple horizontal chips)
@@ -61,10 +66,16 @@ class HomePage extends ConsumerWidget {
             ),
 
             const SizedBox(height: 16),
-            Row(children: [const Icon(Icons.whatshot, color: Colors.orange), const SizedBox(width: 8), Text('2 days streak', style: GoogleFonts.inter())]),
+            Row(children: [const Icon(Icons.whatshot, color: Colors.orange), const SizedBox(width: 8), Text(AppLocalizations.of(context)!.twoDaysStreak, style: GoogleFonts.inter())]),
 
             const SizedBox(height: 20),
-            Text('Featured Workouts', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(AppLocalizations.of(context)!.featuredWorkouts, style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600)),
+                TextButton(onPressed: () => context.go('/featured'), child: Text(AppLocalizations.of(context)!.seeAll)),
+              ],
+            ),
             const SizedBox(height: 12),
 
             featuredAsync.when(
@@ -82,7 +93,13 @@ class HomePage extends ConsumerWidget {
             ),
 
             const SizedBox(height: 20),
-            Text('Meditative Mornings', style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(AppLocalizations.of(context)!.meditativeMornings, style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600)),
+                TextButton(onPressed: () => context.go('/meditative'), child: Text(AppLocalizations.of(context)!.seeAll)),
+              ],
+            ),
             const SizedBox(height: 12),
             medAsync.when(
               data: (items) => Column(children: items.map((m) => ItemMeditiveVertical(meditation: m)).toList()),
@@ -93,8 +110,8 @@ class HomePage extends ConsumerWidget {
             const SizedBox(height: 20),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
-                child: const Text('Complete Assessment'),
+                onPressed: () => context.go('/assessment'),
+                child: Text(AppLocalizations.of(context)!.completeAssessment),
               ),
             ),
           ],

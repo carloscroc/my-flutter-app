@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'src/themes/app_theme.dart';
 import 'src/presentation/features/home/home_page.dart';
+import 'src/routes/go_router_setup.dart';
 
 void main() => runApp(const ProviderScope(child: MyApp()));
 
@@ -10,10 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'My Flutter App',
       theme: AppTheme.light(),
-      home: const HomePage(),
+      routerConfig: createRouter(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

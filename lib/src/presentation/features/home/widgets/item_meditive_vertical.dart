@@ -17,9 +17,9 @@ class ItemMeditiveVertical extends StatelessWidget {
           width: 44,
           height: 44,
           decoration: BoxDecoration(color: Colors.blue.shade200, borderRadius: BorderRadius.circular(8)),
-          child: Padding(
+            child: Padding(
             padding: const EdgeInsets.all(6.0),
-            child: SvgPicture.asset('assets/images/yoga.svg'),
+            child: SvgPicture.asset('assets/images/yoga.svg', semanticsLabel: meditation.name),
           ),
         ),
         title: Text(meditation.name, style: GoogleFonts.inter(fontWeight: FontWeight.w600)),

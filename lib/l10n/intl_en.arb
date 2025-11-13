@@ -1,0 +1,19 @@
+{
+  "@@locale": "en",
+  "goodMorning": "Good Morning, {name}",
+  "twoDaysStreak": "2 days streak",
+  "featuredWorkouts": "Featured Workouts",
+  "meditativeMornings": "Meditative Mornings",
+  "completeAssessment": "Complete Assessment",
+  "seeAll": "See All",
+  "workoutsForYou": "Workouts For You",
+  "helpAssist": "Help us assist you better",
+  "assistanceBody": "Answer a few questions to get best from the app\\nand achieve your goals faster.",
+  "home": "Home",
+  "strength": "Strength",
+  "cardio": "Cardio",
+  "yoga": "Yoga",
+  "walking": "Walking",
+  "running": "Running",
+  "swimming": "Swimming"
+}

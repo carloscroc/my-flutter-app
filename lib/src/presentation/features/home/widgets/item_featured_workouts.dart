@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/src/data/models/workout.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,8 +10,11 @@ class ItemFeaturedWorkouts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenW = MediaQuery.of(context).size.width;
+    final cardW = math.min(320, screenW * 0.72);
+
     return SizedBox(
-      width: 260,
+      width: cardW,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Column(
@@ -23,13 +27,39 @@ class ItemFeaturedWorkouts extends StatelessWidget {
                   color: Colors.grey[300],
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                 ),
-                child: Center(
-                  child: SvgPicture.asset(
-                    'assets/images/bodybuilding.svg',
-                    width: 96,
-                    height: 64,
-                    fit: BoxFit.contain,
-                  ),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+                  child: workout.photoUrl != null
+                      ? Semantics(
+                          label: workout.name,
+                          child: Image.network(
+                            workout.photoUrl!,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                            loadingBuilder: (context, child, progress) {
+                              if (progress == null) return child;
+                              return const Center(child: CircularProgressIndicator());
+                            },
+                            errorBuilder: (context, error, stack) => Center(
+                              child: SvgPicture.asset(
+                                'assets/images/bodybuilding.svg',
+                                width: 96,
+                                height: 64,
+                                fit: BoxFit.contain,
+                                semanticsLabel: 'Workout image',
+                              ),
+                            ),
+                          ),
+                        )
+                      : Center(
+                          child: SvgPicture.asset(
+                            'assets/images/bodybuilding.svg',
+                            width: 96,
+                            height: 64,
+                            fit: BoxFit.contain,
+                            semanticsLabel: workout.name,
+                          ),
+                        ),
                 ),
               ),
             ),

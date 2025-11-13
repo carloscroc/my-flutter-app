@@ -15,12 +15,12 @@ class MockHomeRepository implements HomeRepository {
 
   void _emitInitial() {
     final featured = [
-      Workout(id: 'w1', name: 'Full Body Blast', photoUrl: null, isFeatured: true, shortDescription: 'A short full body routine'),
-      Workout(id: 'w2', name: 'Quick HIIT', photoUrl: null, isFeatured: true, shortDescription: 'High intensity interval training'),
+      Workout(id: 'w1', name: 'Full Body Blast', photoUrl: 'https://picsum.photos/seed/w1/600/360', isFeatured: true, shortDescription: 'A short full body routine'),
+      Workout(id: 'w2', name: 'Quick HIIT', photoUrl: 'https://picsum.photos/seed/w2/600/360', isFeatured: true, shortDescription: 'High intensity interval training'),
     ];
     final all = [
       ...featured,
-      Workout(id: 'w3', name: 'Yoga Flow', photoUrl: null, isFeatured: false),
+      Workout(id: 'w3', name: 'Yoga Flow', photoUrl: 'https://picsum.photos/seed/w3/600/360', isFeatured: false),
     ];
     final meds = [
       MeditativeMorning(id: 'm1', name: 'Breathing Focus', durationMinutes: 5),
