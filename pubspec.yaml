@@ -16,9 +16,7 @@ dependencies:
   cached_network_image: ^3.2.3
   flutter_svg: ^2.0.7
   google_fonts: ^4.0.3
-  firebase_core: ^2.6.1
-  firebase_auth: ^4.4.0
-  cloud_firestore: ^4.6.0
+  # Firebase packages removed for now — using local mock data instead
 
 dev_dependencies:
   flutter_test:
