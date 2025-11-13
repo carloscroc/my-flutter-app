@@ -409,3 +409,158 @@ What I still need from you (actionable items — paste these into your reply):
 
 If you want, I can automatically run a quick repo audit now (list `pubspec.yaml`, top `lib/` files, and run `flutter analyze`). Say “run checks” and I will proceed.
 
+## Style & Layout for Page MD Files (MANDATORY)
+
+- Purpose: Ensure page Markdown files ("page MD") are the single source of truth for page-level style and layout. The agent MUST extract style/layout info from the page MD before generating or rewriting any source files and MUST record extraction results in the companion run log.
+
+- Mandatory extraction rule (blocking): Before any code generation or rewrite for a page MD, the agent must:
+  1. Parse the page MD and locate a `Style` or `Layout` subsection (case-insensitive). If not present, run an automatic style-extraction pass to infer spacing, token names, route path, page title, and accessibility hints — then add the inferred `Style` block to the companion run log and flag it for human review.
+  2. Extract all layout tokens (spacing scale, radius, elevation, textScale, breakpoints), semantic roles (header/main/footer), and i18n keys. Record them as structured YAML/JSON in the run log under `style_extracted`.
+  3. Validate that extracted tokens map to the project's naming conventions (e.g., `BrandTokens`, route path `/kebab-case`, generated file `lib/pages/<page_name>_page.dart`). If mapping fails, abort generation until resolved.
+
+- Pre-generation checklist (agent MUST complete and record in run log):
+  - [ ] `Style` section located or inferred.
+  - [ ] Spacing scale & radius extracted (e.g., `spacing: [4,8,16]`, `radius: 12`).
+  - [ ] Color token or seed present or fallback chosen.
+  - [ ] Accessibility notes present (semantics, focus order, contrast targets).
+  - [ ] i18n keys listed for all user-visible strings.
+  - [ ] Route path and suggested generated filenames listed.
+  - [ ] Run log entry created with `style_extracted: true` and structured data.
+
+- Non-destructive enforcement:
+  - The agent MUST NOT overwrite the original page MD.
+  - The agent MUST create a companion run log named `<page_name>.runlog.md` alongside the page MD. That run log MUST include:
+    - `style_extracted` (JSON/YAML snippet).
+    - `generated_files` list (with paths).
+    - `conflicts` (if any) and chosen filename variants.
+    - `review_notes` and `extraction_confidence` (high/medium/low).
+  - If `extraction_confidence` is `low`, the agent must tag the run log `requires_human_review: true` and pause generation.
+
+- Injected marker (must appear in every generated Dart file from a page MD):
+  - At the top of each generated Dart file include a short comment block (example):
+    ```dart
+    // GENERATED FROM: <page_md_filename>
+    // STYLE_EXTRACT: {"spacing":[4,8,16],"radius":12,"seed":"#2B6CB0","i18n_keys":["page.title","page.cta"]}
+    // RUNLOG: <page_name>.runlog.md
+    ```
+  - This marker allows reviewers and automated checks to verify that the style was read and applied.
+
+- Automation & CI checks (recommended):
+  - Add a lightweight script that validates for each generated file:
+    - presence of the `STYLE_EXTRACT` marker,
+    - that `style_extracted` keys exist in the run log,
+    - that generated filenames conform to naming conventions.
+  - If any check fails, CI should fail the job and link the run log for human review.
+
+- Example run log snippet (`<page_name>.runlog.md`):
+  ```yaml
+  page_md: workout_detail.md
+  style_extracted:
+    spacing: [4,8,16]
+    radius: 12
+    seed: "#2B6CB0"
+    breakpoints: {mobile: 600, tablet: 1024}
+    i18n_keys:
+      - workout.title
+      - workout.start_button
+  generated_files:
+    - lib/pages/workout_detail_page.dart
+  conflicts: []
+  extraction_confidence: high
+  requires_human_review: false
+
+---
+
+### Schema & Validation (recommended)
+
+Provide a concise schema so automated tools and CI can validate run logs. Example (YAML-like):
+
+```yaml
+style_extracted_schema:
+  spacing:
+    type: array
+    items: integer
+    minItems: 1
+  radius:
+    type: integer
+  seed:
+    type: string
+    pattern: '^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$'
+  breakpoints:
+    mobile: {type: integer}
+    tablet: {type: integer}
+  i18n_keys:
+    type: array
+    items: string
+  extraction_confidence:
+    type: string
+    enum: [high, medium, low]
+```
+
+### Extraction Confidence (behavior)
+
+- `high`: All required tokens present and map to project tokens. Agent may generate code.
+- `medium`: Some tokens inferred; agent may generate code but must flag `requires_human_review: true` in run log.
+- `low`: Many tokens missing or ambiguous; agent MUST pause generation and set `requires_human_review: true`.
+
+### Injected Marker (format & rules)
+
+Every generated Dart file from a page MD MUST include a compact comment marker at the top. Use single-line JSON for easy parsing. Example:
+
+```dart
+// GENERATED FROM: workout_detail.md
+// STYLE_EXTRACT: {"spacing":[4,8,16],"radius":12,"seed":"#2B6CB0","i18n_keys":["workout.title","workout.start_button"]}
+// RUNLOG: workout_detail.runlog.md
+```
+
+Rules:
+- Marker must be present and valid JSON (compact) on a single line following `// STYLE_EXTRACT:`.
+- `RUNLOG` must point to the companion run log path relative to the page MD.
+
+### CI / Validator Example
+
+Add a lightweight validation step in CI that:
+- scans for `*.runlog.md` files,
+- validates `style_extracted` against the schema,
+- scans generated Dart files to ensure `STYLE_EXTRACT` markers exist and match the run log.
+
+Example GitHub Actions step (calls a script you provide):
+
+```yaml
+- name: Validate runlogs and markers
+  run: python3 scripts/validate_runlogs.py
+```
+
+Example validator (outline): `scripts/validate_runlogs.py` should:
+- find all `*.runlog.md`, parse YAML,
+- validate required fields per `style_extracted_schema`,
+- for each `generated_files` entry, open file and assert the `STYLE_EXTRACT` marker JSON matches the run log `style_extracted` values.
+
+### Recommended small script (concept)
+
+Provide a simple validator later; this is intentionally high level here. The validator should exit non-zero on any mismatch so CI fails.
+
+### Minimal `Style` subsection example for authors
+
+Include this in page MDs to make extraction explicit:
+
+```markdown
+## Style
+- spacing: [4,8,16]
+- radius: 12
+- seed_color: "#2B6CB0"
+- accessibility:
+  - semantics: "main content"
+  - focus_order: ["header","content","footer"]
+- i18n_keys:
+  - page.title
+  - page.cta
+```
+
+### Non‑destructive reminder
+
+The agent MUST not overwrite the original page MD. Always create a companion run log `<page_name>.runlog.md` alongside the page MD with the extraction details and chosen file names/variants.
+
+---
+
+If you want, I can add the `scripts/validate_runlogs.py` validator and a GitHub Actions job next — say “add validator” and I will create the script and CI step.

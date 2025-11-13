@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'src/themes/app_theme.dart';
-import 'src/routes/app_routes.dart';
+import 'src/routes/go_router_setup.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const ProviderScope(child: MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final router = createRouter();
+    return MaterialApp.router(
       title: 'My Flutter App',
       theme: AppTheme.light(),
-      onGenerateRoute: AppRoutes.generate,
-      initialRoute: '/',
+      routerConfig: router,
     );
   }
 }

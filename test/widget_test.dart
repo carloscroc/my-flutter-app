@@ -8,13 +8,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_flutter_app/main.dart';
 
 void main() {
   testWidgets('App shows welcome text', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const ProviderScope(child: MyApp()));
     await tester.pumpAndSettle();
 
-    expect(find.text('Welcome to My Flutter App'), findsOneWidget);
+    // We expect the login page to be shown in the scaffold (AppBar title).
+    expect(find.text('Sign in'), findsWidgets);
   });
 }
