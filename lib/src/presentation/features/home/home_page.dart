@@ -29,16 +29,19 @@ class HomePage extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
               child: Row(
                 children: [
-                  IconButton(
-                    onPressed: () => context.go('/notifications'),
-                    icon: const Icon(Icons.notifications),
-                    iconSize: 28,
-                  ),
                   const Spacer(),
                   IconButton(
                     onPressed: () => context.go('/search'),
                     icon: const Icon(Icons.search),
-                    iconSize: 28,
+                    iconSize: 30,
+                    padding: const EdgeInsets.all(12),
+                  ),
+                  const SizedBox(width: 8),
+                  IconButton(
+                    onPressed: () => context.go('/notifications'),
+                    icon: const Icon(Icons.notifications),
+                    iconSize: 30,
+                    padding: const EdgeInsets.all(12),
                   ),
                 ],
               ),
