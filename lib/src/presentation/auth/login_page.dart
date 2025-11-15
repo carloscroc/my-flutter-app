@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'auth_provider.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -42,7 +43,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     final user = ref.watch(authControllerProvider);
     if (user != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.of(context).pushReplacementNamed('/home');
+        context.go('/home');
       });
     }
 

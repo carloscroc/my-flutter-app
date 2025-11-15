@@ -11,7 +11,7 @@ class ItemFeaturedWorkouts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenW = MediaQuery.of(context).size.width;
-    final cardW = math.min(320, screenW * 0.72);
+    final cardW = math.min(320, screenW * 0.72).toDouble();
 
     return SizedBox(
       width: cardW,
