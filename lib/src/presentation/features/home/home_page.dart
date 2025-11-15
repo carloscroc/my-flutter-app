@@ -49,13 +49,15 @@ class HomePage extends ConsumerWidget {
 
             // Greeting
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
               child: Text(
                 'Good Morning, ${userName ?? 'John'}',
                 style: GoogleFonts.inter(
-                  fontSize: 32,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 36,
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.w700,
+                  color: Theme.of(context).colorScheme.onBackground,
+                  height: 1.05,
                 ),
               ),
             ),
