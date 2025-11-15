@@ -84,28 +84,44 @@ class HomePage extends ConsumerWidget {
                         children: List.generate(8, (index) {
                           final isActive = index == 3; // sample active
                           return Padding(
-                            padding: const EdgeInsets.only(right: 12.0),
+                            padding: const EdgeInsets.only(right: 14.0),
                             child: Column(
                               children: [
-                                Container(
-                                  width: 56,
-                                  height: 56,
-                                  decoration: BoxDecoration(
-                                    color: isActive ? Theme.of(context).colorScheme.primary : const Color(0xFF1E2324),
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: isActive ? Border.all(color: Theme.of(context).colorScheme.primary) : null,
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    '${5 + index}',
-                                    style: GoogleFonts.inter(
-                                      color: isActive ? Theme.of(context).colorScheme.onPrimary : const Color(0xFF84868B),
-                                      fontWeight: FontWeight.w600,
+                                Material(
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                    onTap: () {
+                                      // TODO: wire up selection state
+                                    },
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Container(
+                                      width: 64,
+                                      height: 64,
+                                      decoration: BoxDecoration(
+                                        color: isActive ? Theme.of(context).colorScheme.primary : const Color(0xFF1E2324),
+                                        borderRadius: BorderRadius.circular(12),
+                                        boxShadow: isActive
+                                            ? [BoxShadow(color: Theme.of(context).colorScheme.primary.withOpacity(0.18), blurRadius: 8, offset: const Offset(0, 3))]
+                                            : null,
+                                        border: isActive ? Border.all(color: Theme.of(context).colorScheme.primary, width: 1.5) : null,
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        '${5 + index}',
+                                        style: GoogleFonts.inter(
+                                          fontSize: 16,
+                                          color: isActive ? Theme.of(context).colorScheme.onPrimary : const Color(0xFFB0B3B8),
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 6),
-                                Text(['S', 'M', 'T', 'W', 'T', 'F', 'S', 'S'][index], style: GoogleFonts.inter(color: Colors.white70)),
+                                const SizedBox(height: 8),
+                                Text(
+                                  ['S', 'M', 'T', 'W', 'T', 'F', 'S', 'S'][index],
+                                  style: GoogleFonts.inter(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w500),
+                                ),
                               ],
                             ),
                           );
