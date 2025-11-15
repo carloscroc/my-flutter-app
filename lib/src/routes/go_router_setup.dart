@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_flutter_app/l10n/app_localizations.dart';
 import '../presentation/auth/login_page.dart';
 import '../presentation/features/home/home_page.dart';
+import 'package:my_flutter_app/ui_background_test.dart';
 
 GoRouter createRouter() {
   return GoRouter(
@@ -59,6 +60,12 @@ GoRouter createRouter() {
         path: '/assessment',
         name: 'AssessmentPage',
         builder: (context, state) => Scaffold(appBar: AppBar(title: const Text('Assessment')), body: const Center(child: Text('Assessment'))),
+      ),
+      // Non-breaking test route for iterating on background images/SVGs.
+      GoRoute(
+        path: '/ui_background_test',
+        name: 'UIBackgroundTest',
+        builder: (context, state) => const UIBackgroundTest(),
       ),
     ],
   );
